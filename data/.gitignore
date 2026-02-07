@@ -1,0 +1,5 @@
+# All measurement data lives on the 'results' branch, NOT in PR diffs.
+# See data/README.md for setup instructions.
+*.csv
+*.json
+ai-patches/

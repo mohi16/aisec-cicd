@@ -1,0 +1,48 @@
+rules:
+  # Use Semgrep's managed rulesets for Java security
+  # These are referenced in the CI workflow via --config flags.
+  # This file provides local overrides and custom rules if needed.
+
+  # --- Custom rule: Detect hardcoded secrets in Java code ---
+  - id: custom-hardcoded-secret
+    patterns:
+      - pattern-either:
+          - pattern: |
+              String $VAR = "...";
+          - pattern: |
+              private static final String $VAR = "...";
+    metavariable-regex:
+      metavariable: $VAR
+      regex: (?i)(password|secret|api_key|apikey|token|private_key)
+    message: >
+      Potential hardcoded secret detected in variable '$VAR'.
+      Use environment variables or a secrets manager instead.
+    severity: ERROR
+    languages: [java]
+    metadata:
+      cwe:
+        - "CWE-798: Use of Hard-coded Credentials"
+      owasp:
+        - "A07:2021 - Identification and Authentication Failures"
+
+  # --- Custom rule: Detect SQL string concatenation ---
+  - id: custom-sql-concatenation
+    patterns:
+      - pattern-either:
+          - pattern: |
+              $X + "..." + $Y
+          - pattern: |
+              String.format("...", $Y)
+    metavariable-regex:
+      metavariable: $X
+      regex: (?i).*(query|sql|select|insert|update|delete).*
+    message: >
+      Possible SQL injection via string concatenation.
+      Use parameterized queries or prepared statements instead.
+    severity: ERROR
+    languages: [java]
+    metadata:
+      cwe:
+        - "CWE-89: SQL Injection"
+      owasp:
+        - "A03:2021 - Injection"

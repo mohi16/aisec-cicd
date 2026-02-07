@@ -1,0 +1,44 @@
+spring:
+  application:
+    name: security-study
+
+  datasource:
+    url: jdbc:h2:mem:securitystudy
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+app:
+  jwt:
+    # In production, use an environment variable: ${JWT_SECRET}
+    # This 64-char hex string is for development only
+    secret: a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2
+    expiration-ms: 3600000  # 1 hour
+  upload:
+    dir: uploads
+
+server:
+  port: 8080
+
+logging:
+  level:
+    com.thesis.securitystudy: DEBUG
+    org.springframework.security: INFO

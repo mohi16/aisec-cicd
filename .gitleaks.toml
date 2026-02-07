@@ -1,0 +1,15 @@
+# Gitleaks configuration for the security study
+# See https://github.com/gitleaks/gitleaks#configuration
+
+title = "Security Study Gitleaks Config"
+
+[allowlist]
+  description = "Global allowlist"
+  paths = [
+    '''(.*)?test(.*)''',          # Don't flag test files for fake secrets
+    '''src/test/.*''',
+  ]
+
+# Additional rules beyond the defaults can be added here.
+# The built-in rules already cover AWS keys, GCP keys, GitHub tokens,
+# generic passwords, private keys, etc.
