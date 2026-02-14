@@ -116,6 +116,6 @@ class NoteSearchTests {
     void searchNotes_requiresAuthentication() throws Exception {
         mockMvc.perform(get("/api/notes/search")
                         .param("q", "test"))
-                .andExpect(status().isUnauthorized());
+                .andExpect(status().isForbidden());
     }
 }
