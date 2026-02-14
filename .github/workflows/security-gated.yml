@@ -237,10 +237,13 @@ jobs:
       - name: Run OWASP Dependency-Check
         id: depcheck
         continue-on-error: true
+        env:
+          NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
         run: |
           mvn dependency-check:check -B \
-            -DnvdApiKey=${{ secrets.NVD_API_KEY }} \
+            -DnvdApiKey="$NVD_API_KEY" \
             -DfailBuildOnCVSS=7
+
         # NVD_API_KEY: free key from https://nvd.nist.gov/developers/request-an-api-key
         # Without it, NVD rate-limits requests and the check may timeout.
 
