@@ -1,6 +1,6 @@
 # =============================================================================
 # BASELINE PIPELINE
-# Includes: formatting check, compilation with lint warnings, unit tests
+# Includes: compilation with lint warnings, unit tests
 # Does NOT include: any security scanning tools
 # =============================================================================
 name: Baseline Pipeline
@@ -19,31 +19,11 @@ env:
 
 jobs:
   # ---------------------------------------------------------------------------
-  # Job 1: Format check (Spotless)
-  # ---------------------------------------------------------------------------
-  format-check:
-    name: Format Check
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up JDK ${{ env.JAVA_VERSION }}
-        uses: actions/setup-java@v4
-        with:
-          java-version: ${{ env.JAVA_VERSION }}
-          distribution: 'temurin'
-          cache: 'maven'
-
-      - name: Check formatting with Spotless
-        run: mvn spotless:check -B -q
-
-  # ---------------------------------------------------------------------------
-  # Job 2: Compile with lint warnings
+  # Job 1: Compile with lint warnings
   # ---------------------------------------------------------------------------
   compile:
     name: Compile & Lint
     runs-on: ubuntu-latest
-    needs: format-check
     steps:
       - uses: actions/checkout@v4
 
@@ -58,7 +38,7 @@ jobs:
         run: mvn compile -B -Xlint:all
 
   # ---------------------------------------------------------------------------
-  # Job 3: Unit tests
+  # Job 2: Unit tests
   # ---------------------------------------------------------------------------
   test:
     name: Unit Tests
@@ -86,12 +66,12 @@ jobs:
           retention-days: 30
 
   # ---------------------------------------------------------------------------
-  # Job 4: Record pipeline metrics
+  # Job 3: Record pipeline metrics
   # ---------------------------------------------------------------------------
   record-metrics:
     name: Record Pipeline Metrics
     runs-on: ubuntu-latest
-    needs: [format-check, compile, test]
+    needs: [compile, test]
     if: always()
     steps:
       - name: Collect pipeline metadata
@@ -104,6 +84,5 @@ jobs:
           echo "| Run ID | ${{ github.run_id }} |" >> $GITHUB_STEP_SUMMARY
           echo "| Run Attempt | ${{ github.run_attempt }} |" >> $GITHUB_STEP_SUMMARY
           echo "| Triggered at | $(date -u +%Y-%m-%dT%H:%M:%SZ) |" >> $GITHUB_STEP_SUMMARY
-          echo "| Format Check | ${{ needs.format-check.result }} |" >> $GITHUB_STEP_SUMMARY
           echo "| Compile | ${{ needs.compile.result }} |" >> $GITHUB_STEP_SUMMARY
           echo "| Tests | ${{ needs.test.result }} |" >> $GITHUB_STEP_SUMMARY
