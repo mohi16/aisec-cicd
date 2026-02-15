@@ -13,6 +13,7 @@ on:
 permissions:
   contents: read
   security-events: write  # Required for CodeQL SARIF upload
+  actions: read
 
 env:
   JAVA_VERSION: '21'
