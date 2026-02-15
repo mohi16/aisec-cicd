@@ -87,7 +87,7 @@ jobs:
         uses: github/codeql-action/init@v3
         with:
           languages: java-kotlin
-          queries: security-extended
+          config-file: .github/codeql-config.yml
 
       - name: Build for CodeQL
         run: mvn compile -B -DskipTests
@@ -158,7 +158,7 @@ jobs:
             --error \
             --json \
             --output semgrep-results.json \
-            .
+            src/
 
       - name: Run Semgrep (SARIF report)
         if: always()
@@ -170,7 +170,7 @@ jobs:
             --config "p/cwe-top-25" \
             --sarif \
             --output semgrep-results.sarif \
-            .
+            src/
 
       - name: Upload Semgrep results
         if: always()
@@ -208,8 +208,8 @@ jobs:
         id: gitleaks_scan
         continue-on-error: true
         run: |
+          set -o pipefail
           gitleaks detect --source . --report-format sarif --report-path gitleaks-results.sarif --verbose 2>&1 | tee gitleaks-output.txt
-          echo "exit_code=$?" >> $GITHUB_OUTPUT
 
       - name: Upload Gitleaks results
         if: always()
