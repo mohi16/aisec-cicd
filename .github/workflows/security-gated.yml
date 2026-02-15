@@ -146,8 +146,22 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Run Semgrep
-        id: semgrep_scan
+      - name: Run Semgrep (gate + JSON)
+        id: semgrep_gate
+        continue-on-error: true
+        run: |
+          semgrep scan \
+            --config "p/java" \
+            --config "p/owasp-top-ten" \
+            --config "p/cwe-top-25" \
+            --severity ERROR \
+            --error \
+            --json \
+            --output semgrep-results.json \
+            .
+
+      - name: Run Semgrep (SARIF report)
+        if: always()
         continue-on-error: true
         run: |
           semgrep scan \
@@ -156,11 +170,7 @@ jobs:
             --config "p/cwe-top-25" \
             --sarif \
             --output semgrep-results.sarif \
-            --json \
-            --json-output semgrep-results.json \
-            --error \
-            --severity ERROR \
-            src/
+            .
 
       - name: Upload Semgrep results
         if: always()
@@ -173,9 +183,9 @@ jobs:
           retention-days: 30
 
       - name: Fail on Semgrep findings
-        if: steps.semgrep_scan.outcome == 'failure'
+        if: steps.semgrep_gate.outcome == 'failure'
         run: |
-          echo "❌ Semgrep found ERROR-severity findings. Failing the gate."
+          echo "❌ Semgrep found ERROR-severity findings (or scan failed). Failing the gate."
           exit 1
 
   # ---------------------------------------------------------------------------
