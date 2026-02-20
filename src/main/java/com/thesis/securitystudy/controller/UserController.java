@@ -133,4 +133,16 @@ public class UserController {
                 )
         );
     }
+    @GetMapping("/me")
+    public ResponseEntity<ApiResponse<ProfileResponse>> getCurrentUser(Authentication auth) {
+        User user = userService.getByUsername(auth.getName());
+        ProfileResponse resp = new ProfileResponse(
+                user.getId(),
+                user.getUsername(),
+                user.getEmail(),
+                user.getBio(),
+                user.getAvatarUrl()
+        );
+        return ResponseEntity.ok(ApiResponse.ok("Current user", resp));
+    }
 }
