@@ -48,7 +48,7 @@ public class AdminService {
         try {
             user.setEnabled(false);
             userRepository.save(user);
-        } catch (NoSuchMethodError | NoSuchMethodException | RuntimeException ignored) {
+        } catch (NoSuchMethodError | RuntimeException ignored) {
             userRepository.deleteById(id);
         }
     }
