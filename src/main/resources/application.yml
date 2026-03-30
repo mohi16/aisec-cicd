@@ -42,3 +42,6 @@ logging:
   level:
     com.thesis.securitystudy: DEBUG
     org.springframework.security: INFO
+encryption:
+  secret-key: "1234567890123456"
+
