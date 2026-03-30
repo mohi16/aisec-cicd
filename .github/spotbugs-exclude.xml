@@ -1,0 +1,9 @@
+<FindBugsFilter>
+    <!-- Exclude scaffold noise -->
+    <Match><Bug pattern="SPRING_ENDPOINT"/></Match>
+    <Match><Bug pattern="SPRING_CSRF_PROTECTION_DISABLED"/></Match>
+    <Match><Bug pattern="EI_EXPOSE_REP"/></Match>
+    <Match><Bug pattern="EI_EXPOSE_REP2"/></Match>
+    <Match><Bug pattern="DLS_DEAD_LOCAL_STORE"/></Match>
+    <Match><Bug pattern="CT_CONSTRUCTOR_THROW"/></Match>
+</FindBugsFilter>

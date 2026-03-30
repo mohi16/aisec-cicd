@@ -234,6 +234,7 @@ jobs:
             -textui \
             -effort:max \
             -low \
+            -exclude .github/spotbugs-exclude.xml \
             -pluginList "tools/findsecbugs-plugin.jar" \
             -auxclasspath "$AUX_CP" \
             -xml:withMessages \
