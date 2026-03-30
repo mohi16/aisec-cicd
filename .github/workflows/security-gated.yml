@@ -1,8 +1,12 @@
-# =============================================================================
-# SECURITY-GATED PIPELINE
-# Extends Baseline with: CodeQL, Semgrep, Gitleaks, OWASP Dependency-Check
-# Fail conditions are defined per tool to act as security gates.
-# =============================================================================
+# ─────────────────────────────────────────────────────────────────────────────
+# Security-Gated CI Pipeline
+#
+# Extends the baseline build with static analysis, secret scanning, and
+# dependency vulnerability checks. Every security tool acts as a gate —
+# any finding above the configured threshold fails the pipeline.
+#
+# Tools:  CodeQL · Semgrep · SpotBugs + FindSecBugs · Gitleaks · OWASP DC
+# ─────────────────────────────────────────────────────────────────────────────
 name: Security-Gated Pipeline
 
 on:
@@ -12,17 +16,20 @@ on:
 
 permissions:
   contents: read
-  security-events: write  # Required for CodeQL SARIF upload
+  security-events: write
   actions: read
 
 env:
-  JAVA_VERSION: '21'
-  MAVEN_OPTS: '-Xmx1024m'
+  JAVA_VERSION: "21"
+  MAVEN_OPTS: "-Xmx1024m"
+  SPOTBUGS_VERSION: "4.9.3"
+  FINDSECBUGS_VERSION: "1.12.0"
+  GITLEAKS_VERSION: "8.18.4"
 
+# ─────────────────────────────────────────────────────────────────────────────
 jobs:
-  # ---------------------------------------------------------------------------
-  # Job 1: Compile with lint warnings
-  # ---------------------------------------------------------------------------
+
+  # ── 1. Compile & Lint ─────────────────────────────────────────────────────
   compile:
     name: Compile & Lint
     runs-on: ubuntu-latest
@@ -33,15 +40,13 @@ jobs:
         uses: actions/setup-java@v4
         with:
           java-version: ${{ env.JAVA_VERSION }}
-          distribution: 'temurin'
-          cache: 'maven'
+          distribution: temurin
+          cache: maven
 
       - name: Compile with lint warnings
         run: mvn compile -B
 
-  # ---------------------------------------------------------------------------
-  # Job 3: Unit tests (same as baseline)
-  # ---------------------------------------------------------------------------
+  # ── 2. Unit Tests ─────────────────────────────────────────────────────────
   test:
     name: Unit Tests
     runs-on: ubuntu-latest
@@ -53,8 +58,8 @@ jobs:
         uses: actions/setup-java@v4
         with:
           java-version: ${{ env.JAVA_VERSION }}
-          distribution: 'temurin'
-          cache: 'maven'
+          distribution: temurin
+          cache: maven
 
       - name: Run tests
         run: mvn test -B
@@ -67,9 +72,7 @@ jobs:
           path: target/surefire-reports/
           retention-days: 30
 
-  # ---------------------------------------------------------------------------
-  # Job 4: CodeQL Analysis
-  # ---------------------------------------------------------------------------
+  # ── 3. CodeQL (SAST) ─────────────────────────────────────────────────────
   codeql:
     name: CodeQL SAST
     runs-on: ubuntu-latest
@@ -81,8 +84,8 @@ jobs:
         uses: actions/setup-java@v4
         with:
           java-version: ${{ env.JAVA_VERSION }}
-          distribution: 'temurin'
-          cache: 'maven'
+          distribution: temurin
+          cache: maven
 
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
@@ -93,10 +96,10 @@ jobs:
       - name: Build for CodeQL
         run: mvn compile -B -DskipTests
 
-      - name: Perform CodeQL Analysis
+      - name: Perform CodeQL analysis
         uses: github/codeql-action/analyze@v3
         with:
-          category: '/language:java-kotlin'
+          category: "/language:java-kotlin"
           output: codeql-results
 
       - name: Upload CodeQL SARIF
@@ -107,17 +110,15 @@ jobs:
           path: codeql-results/
           retention-days: 30
 
-      # CRITICAL: CodeQL analyze does NOT fail the workflow by default.
-      # This step parses the SARIF output and fails if security findings exist.
+      # Gate: fail if any security finding exists in the SARIF output.
       - name: Fail on CodeQL security findings
         if: always()
         run: |
-          echo "Checking CodeQL SARIF for security findings..."
           if ! ls codeql-results/*.sarif 1>/dev/null 2>&1; then
-            echo "⚠️ No SARIF files found — CodeQL analysis may not have completed."
-            echo "Not failing the gate for infrastructure issues."
+            echo "::warning::No SARIF files found — skipping gate (possible infra issue)"
             exit 0
           fi
+
           FINDINGS=$(python3 -c "
           import json, glob
           count = 0
@@ -128,16 +129,14 @@ jobs:
                       count += len(run.get('results', []))
           print(count)
           ")
-          echo "CodeQL found $FINDINGS finding(s)"
-          echo "codeql_finding_count=$FINDINGS" >> $GITHUB_ENV
+
+          echo "CodeQL findings: $FINDINGS"
           if [ "$FINDINGS" -gt 0 ]; then
-            echo "❌ CodeQL found $FINDINGS security finding(s). Failing the gate."
+            echo "::error::CodeQL found $FINDINGS security finding(s) — gate failed"
             exit 1
           fi
 
-  # ---------------------------------------------------------------------------
-  # Job 5: Semgrep SAST
-  # ---------------------------------------------------------------------------
+  # ── 4. Semgrep (SAST) ────────────────────────────────────────────────────
   semgrep:
     name: Semgrep SAST
     runs-on: ubuntu-latest
@@ -147,12 +146,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Run Semgrep (gate + JSON)
+      # Primary scan — JSON output, ERROR severity only, --error flag for gating.
+      - name: Run Semgrep (gate)
         id: semgrep_gate
         continue-on-error: true
         run: |
           semgrep scan \
             --config "p/java" \
+            --config "p/findsecbugs" \
             --config "p/owasp-top-ten" \
             --config "p/cwe-top-25" \
             --severity ERROR \
@@ -161,12 +162,14 @@ jobs:
             --output semgrep-results.json \
             src/
 
+      # Secondary scan — SARIF for GitHub Security tab integration.
       - name: Run Semgrep (SARIF report)
         if: always()
         continue-on-error: true
         run: |
           semgrep scan \
             --config "p/java" \
+            --config "p/findsecbugs" \
             --config "p/owasp-top-ten" \
             --config "p/cwe-top-25" \
             --sarif \
@@ -186,23 +189,100 @@ jobs:
       - name: Fail on Semgrep findings
         if: steps.semgrep_gate.outcome == 'failure'
         run: |
-          echo "❌ Semgrep found ERROR-severity findings (or scan failed). Failing the gate."
+          echo "::error::Semgrep found ERROR-severity findings — gate failed"
           exit 1
 
-  # ---------------------------------------------------------------------------
-  # Job 6: Gitleaks Secret Scanning
-  # ---------------------------------------------------------------------------
+  # ── 5. SpotBugs + FindSecBugs ────────────────────────────────────────────
+  spotbugs:
+    name: SpotBugs + FindSecBugs
+    runs-on: ubuntu-latest
+    needs: compile
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK ${{ env.JAVA_VERSION }}
+        uses: actions/setup-java@v4
+        with:
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: temurin
+          cache: maven
+
+      - name: Build classes and export classpath
+        run: |
+          mvn -B -DskipTests clean compile dependency:build-classpath \
+            -Dmdep.outputFile=target/classpath.txt
+
+      - name: Install SpotBugs and FindSecBugs
+        run: |
+          mkdir -p tools target/spotbugs
+
+          curl -fsSL -o tools/spotbugs.tgz \
+            "https://github.com/spotbugs/spotbugs/releases/download/${SPOTBUGS_VERSION}/spotbugs-${SPOTBUGS_VERSION}.tgz"
+          tar -xzf tools/spotbugs.tgz -C tools
+
+          curl -fsSL -o tools/findsecbugs-plugin.jar \
+            "https://repo1.maven.org/maven2/com/h3xstream/findsecbugs/findsecbugs-plugin/${FINDSECBUGS_VERSION}/findsecbugs-plugin-${FINDSECBUGS_VERSION}.jar"
+
+      - name: Run SpotBugs with FindSecBugs
+        id: spotbugs_scan
+        continue-on-error: true
+        run: |
+          set -euo pipefail
+          AUX_CP="$(cat target/classpath.txt)"
+
+          java -jar "tools/spotbugs-${SPOTBUGS_VERSION}/lib/spotbugs.jar" \
+            -textui \
+            -effort:max \
+            -low \
+            -pluginList "tools/findsecbugs-plugin.jar" \
+            -auxclasspath "$AUX_CP" \
+            -xml:withMessages \
+            -output "target/spotbugs/spotbugs.xml" \
+            target/classes
+
+      - name: Upload SpotBugs results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: spotbugs-results
+          path: target/spotbugs/
+          retention-days: 30
+
+      # Gate: parse the XML report and fail if any BugInstance exists.
+      - name: Fail on SpotBugs findings
+        if: always()
+        run: |
+          if [ ! -f target/spotbugs/spotbugs.xml ]; then
+            echo "::warning::SpotBugs XML report missing — skipping gate (possible infra issue)"
+            exit 0
+          fi
+
+          FINDINGS=$(python3 -c "
+          import xml.etree.ElementTree as ET
+          root = ET.parse('target/spotbugs/spotbugs.xml').getroot()
+          print(len(root.findall('.//BugInstance')))
+          ")
+
+          echo "SpotBugs/FindSecBugs findings: $FINDINGS"
+          if [ "$FINDINGS" -gt 0 ]; then
+            echo "::error::SpotBugs/FindSecBugs found $FINDINGS finding(s) — gate failed"
+            exit 1
+          fi
+
+  # ── 6. Gitleaks (Secret Scanning) ────────────────────────────────────────
   gitleaks:
     name: Gitleaks Secret Scan
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Full history for secret scanning
+          fetch-depth: 0 # full history required for secret scanning
 
       - name: Install Gitleaks
         run: |
-          wget -qO- https://github.com/gitleaks/gitleaks/releases/download/v8.18.4/gitleaks_8.18.4_linux_x64.tar.gz | tar xz
+          wget -qO- \
+            "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz" \
+            | tar xz
           sudo mv gitleaks /usr/local/bin/
 
       - name: Run Gitleaks
@@ -210,7 +290,11 @@ jobs:
         continue-on-error: true
         run: |
           set -o pipefail
-          gitleaks detect --source . --report-format sarif --report-path gitleaks-results.sarif --verbose 2>&1 | tee gitleaks-output.txt
+          gitleaks detect \
+            --source . \
+            --report-format sarif \
+            --report-path gitleaks-results.sarif \
+            --verbose 2>&1 | tee gitleaks-output.txt
 
       - name: Upload Gitleaks results
         if: always()
@@ -225,12 +309,10 @@ jobs:
       - name: Fail on leaked secrets
         if: steps.gitleaks_scan.outcome == 'failure'
         run: |
-          echo "❌ Gitleaks found leaked secrets. Failing the gate."
+          echo "::error::Gitleaks found leaked secrets — gate failed"
           exit 1
 
-  # ---------------------------------------------------------------------------
-  # Job 7: OWASP Dependency-Check (SCA)
-  # ---------------------------------------------------------------------------
+  # ── 7. OWASP Dependency-Check (SCA) ──────────────────────────────────────
   dependency-check:
     name: OWASP Dependency-Check
     runs-on: ubuntu-latest
@@ -242,9 +324,10 @@ jobs:
         uses: actions/setup-java@v4
         with:
           java-version: ${{ env.JAVA_VERSION }}
-          distribution: 'temurin'
-          cache: 'maven'
+          distribution: temurin
+          cache: maven
 
+      # Gate threshold: CVSS >= 7 (High / Critical).
       - name: Run OWASP Dependency-Check
         id: depcheck
         continue-on-error: true
@@ -253,10 +336,10 @@ jobs:
         run: |
           mvn dependency-check:check -B \
             -DnvdApiKey="$NVD_API_KEY" \
+            -Dformats=HTML,JSON,SARIF \
+            -DprettyPrint=true \
+            -DoutputDirectory=target/dependency-check \
             -DfailBuildOnCVSS=7
-
-        # NVD_API_KEY: free key from https://nvd.nist.gov/developers/request-an-api-key
-        # Without it, NVD rate-limits requests and the check may timeout.
 
       - name: Upload Dependency-Check report
         if: always()
@@ -269,75 +352,74 @@ jobs:
       - name: Fail on vulnerable dependencies
         if: steps.depcheck.outcome == 'failure'
         run: |
-          # Check if failure was a real finding or a download error
           if [ -f target/dependency-check/dependency-check-report.json ]; then
-            echo "❌ Dependency-Check found vulnerabilities with CVSS >= 7. Failing the gate."
+            echo "::error::Dependency-Check found vulnerabilities with CVSS >= 7 — gate failed"
             exit 1
           else
-            echo "⚠️ Dependency-Check failed (likely NVD download issue). See logs."
-            echo "Treating as inconclusive — not failing the gate for infra issues."
+            echo "::warning::Dependency-Check failed (likely NVD download issue) — skipping gate"
             exit 0
           fi
 
-  # ---------------------------------------------------------------------------
-  # Job 8: Security Gate Decision
-  # ---------------------------------------------------------------------------
+  # ── 8. Security Gate (aggregate decision) ────────────────────────────────
   security-gate:
     name: Security Gate
     runs-on: ubuntu-latest
-    needs: [test, codeql, semgrep, gitleaks, dependency-check]
+    needs: [test, codeql, semgrep, spotbugs, gitleaks, dependency-check]
     if: always()
     steps:
       - name: Evaluate security gate
         run: |
-          echo "## Security Gate Results" >> $GITHUB_STEP_SUMMARY
-          echo "| Tool | Result |" >> $GITHUB_STEP_SUMMARY
-          echo "|------|--------|" >> $GITHUB_STEP_SUMMARY
-          echo "| Unit Tests | ${{ needs.test.result }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| CodeQL | ${{ needs.codeql.result }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Semgrep | ${{ needs.semgrep.result }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Gitleaks | ${{ needs.gitleaks.result }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Dependency-Check | ${{ needs.dependency-check.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "## Security Gate Results"                                >> "$GITHUB_STEP_SUMMARY"
+          echo "| Tool               | Result   |"                      >> "$GITHUB_STEP_SUMMARY"
+          echo "|--------------------|----------|"                      >> "$GITHUB_STEP_SUMMARY"
+          echo "| Unit Tests         | ${{ needs.test.result }} |"      >> "$GITHUB_STEP_SUMMARY"
+          echo "| CodeQL             | ${{ needs.codeql.result }} |"    >> "$GITHUB_STEP_SUMMARY"
+          echo "| Semgrep            | ${{ needs.semgrep.result }} |"   >> "$GITHUB_STEP_SUMMARY"
+          echo "| SpotBugs           | ${{ needs.spotbugs.result }} |"  >> "$GITHUB_STEP_SUMMARY"
+          echo "| Gitleaks           | ${{ needs.gitleaks.result }} |"  >> "$GITHUB_STEP_SUMMARY"
+          echo "| Dependency-Check   | ${{ needs.dependency-check.result }} |" >> "$GITHUB_STEP_SUMMARY"
 
-          # Fail if ANY security tool failed
-          if [[ "${{ needs.test.result }}" == "failure" || \
-                "${{ needs.codeql.result }}" == "failure" || \
-                "${{ needs.semgrep.result }}" == "failure" || \
-                "${{ needs.gitleaks.result }}" == "failure" || \
-                "${{ needs.dependency-check.result }}" == "failure" ]]; then
-            echo ""
-            echo "❌ SECURITY GATE FAILED - one or more security checks did not pass."
-            echo "gate_status=FAILED" >> $GITHUB_ENV
+          FAILED=false
+          for result in \
+            "${{ needs.test.result }}" \
+            "${{ needs.codeql.result }}" \
+            "${{ needs.semgrep.result }}" \
+            "${{ needs.spotbugs.result }}" \
+            "${{ needs.gitleaks.result }}" \
+            "${{ needs.dependency-check.result }}"; do
+            [ "$result" = "failure" ] && FAILED=true
+          done
+
+          if [ "$FAILED" = true ]; then
+            echo "::error::SECURITY GATE FAILED — one or more checks did not pass"
             exit 1
-          else
-            echo ""
-            echo "✅ SECURITY GATE PASSED - all checks passed."
-            echo "gate_status=PASSED" >> $GITHUB_ENV
           fi
+          echo "✅ Security gate passed — all checks succeeded"
 
-  # ---------------------------------------------------------------------------
-  # Job 9: Record pipeline metrics
-  # ---------------------------------------------------------------------------
+  # ── 9. Record Pipeline Metrics ───────────────────────────────────────────
   record-metrics:
     name: Record Pipeline Metrics
     runs-on: ubuntu-latest
-    needs: [compile, test, codeql, semgrep, gitleaks, dependency-check, security-gate]
+    needs: [compile, test, codeql, semgrep, spotbugs, gitleaks, dependency-check, security-gate]
     if: always()
     steps:
       - name: Collect pipeline metadata
         run: |
-          echo "## Security-Gated Pipeline Metrics" >> $GITHUB_STEP_SUMMARY
-          echo "| Metric | Value |" >> $GITHUB_STEP_SUMMARY
-          echo "|--------|-------|" >> $GITHUB_STEP_SUMMARY
-          echo "| Pipeline | Security-Gated |" >> $GITHUB_STEP_SUMMARY
-          echo "| PR Number | ${{ github.event.pull_request.number }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Run ID | ${{ github.run_id }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Run Attempt | ${{ github.run_attempt }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Triggered at | $(date -u +%Y-%m-%dT%H:%M:%SZ) |" >> $GITHUB_STEP_SUMMARY
-          echo "| Compile | ${{ needs.compile.result }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Tests | ${{ needs.test.result }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| CodeQL | ${{ needs.codeql.result }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Semgrep | ${{ needs.semgrep.result }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Gitleaks | ${{ needs.gitleaks.result }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Dep-Check | ${{ needs.dependency-check.result }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Security Gate | ${{ needs.security-gate.result }} |" >> $GITHUB_STEP_SUMMARY
+          cat >> "$GITHUB_STEP_SUMMARY" <<EOF
+          ## Security-Gated Pipeline Metrics
+          | Metric           | Value |
+          |------------------|-------|
+          | Pipeline         | Security-Gated |
+          | PR Number        | ${{ github.event.pull_request.number }} |
+          | Run ID           | ${{ github.run_id }} |
+          | Run Attempt      | ${{ github.run_attempt }} |
+          | Triggered at     | $(date -u +%Y-%m-%dT%H:%M:%SZ) |
+          | Compile          | ${{ needs.compile.result }} |
+          | Tests            | ${{ needs.test.result }} |
+          | CodeQL           | ${{ needs.codeql.result }} |
+          | Semgrep          | ${{ needs.semgrep.result }} |
+          | SpotBugs         | ${{ needs.spotbugs.result }} |
+          | Gitleaks         | ${{ needs.gitleaks.result }} |
+          | Dep-Check        | ${{ needs.dependency-check.result }} |
+          | Security Gate    | ${{ needs.security-gate.result }} |
+          EOF

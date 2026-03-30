@@ -1,8 +1,9 @@
-# =============================================================================
-# BASELINE PIPELINE
-# Includes: compilation with lint warnings, unit tests
-# Does NOT include: any security scanning tools
-# =============================================================================
+# ─────────────────────────────────────────────────────────────────────────────
+# Baseline CI Pipeline
+#
+# Compile, test, and gate. No security tooling — see the Security-Gated
+# pipeline for SAST, SCA, and secret scanning.
+# ─────────────────────────────────────────────────────────────────────────────
 name: Baseline Pipeline
 
 on:
@@ -14,13 +15,13 @@ permissions:
   contents: read
 
 env:
-  JAVA_VERSION: '21'
-  MAVEN_OPTS: '-Xmx1024m'
+  JAVA_VERSION: "21"
+  MAVEN_OPTS: "-Xmx1024m"
 
+# ─────────────────────────────────────────────────────────────────────────────
 jobs:
-  # ---------------------------------------------------------------------------
-  # Job 1: Compile with lint warnings
-  # ---------------------------------------------------------------------------
+
+  # ── 1. Compile & Lint ─────────────────────────────────────────────────────
   compile:
     name: Compile & Lint
     runs-on: ubuntu-latest
@@ -31,15 +32,13 @@ jobs:
         uses: actions/setup-java@v4
         with:
           java-version: ${{ env.JAVA_VERSION }}
-          distribution: 'temurin'
-          cache: 'maven'
+          distribution: temurin
+          cache: maven
 
-      - name: Compile with lint warnings
-        run: mvn compile -B
+      - name: Compile
+        run: mvn -B clean compile
 
-  # ---------------------------------------------------------------------------
-  # Job 2: Unit tests
-  # ---------------------------------------------------------------------------
+  # ── 2. Unit Tests ─────────────────────────────────────────────────────────
   test:
     name: Unit Tests
     runs-on: ubuntu-latest
@@ -51,11 +50,11 @@ jobs:
         uses: actions/setup-java@v4
         with:
           java-version: ${{ env.JAVA_VERSION }}
-          distribution: 'temurin'
-          cache: 'maven'
+          distribution: temurin
+          cache: maven
 
       - name: Run tests
-        run: mvn test -B
+        run: mvn -B test
 
       - name: Upload test reports
         if: always()
@@ -65,24 +64,53 @@ jobs:
           path: target/surefire-reports/
           retention-days: 30
 
-  # ---------------------------------------------------------------------------
-  # Job 3: Record pipeline metrics
-  # ---------------------------------------------------------------------------
-  record-metrics:
-    name: Record Pipeline Metrics
+  # ── 3. Baseline Gate ──────────────────────────────────────────────────────
+  baseline-gate:
+    name: Baseline Gate
     runs-on: ubuntu-latest
     needs: [compile, test]
     if: always()
     steps:
+      - name: Evaluate baseline gate
+        run: |
+          cat >> "$GITHUB_STEP_SUMMARY" <<EOF
+          ## Baseline Gate Results
+          | Check   | Result |
+          |---------|--------|
+          | Compile | ${{ needs.compile.result }} |
+          | Tests   | ${{ needs.test.result }} |
+          EOF
+
+          FAILED=false
+          for result in "${{ needs.compile.result }}" "${{ needs.test.result }}"; do
+            [ "$result" = "failure" ] && FAILED=true
+          done
+
+          if [ "$FAILED" = true ]; then
+            echo "::error::Baseline gate failed — one or more checks did not pass"
+            exit 1
+          fi
+          echo "✅ Baseline gate passed"
+
+  # ── 4. Record Pipeline Metrics ───────────────────────────────────────────
+  record-metrics:
+    name: Record Pipeline Metrics
+    runs-on: ubuntu-latest
+    needs: [compile, test, baseline-gate]
+    if: always()
+    steps:
       - name: Collect pipeline metadata
         run: |
-          echo "## Baseline Pipeline Metrics" >> $GITHUB_STEP_SUMMARY
-          echo "| Metric | Value |" >> $GITHUB_STEP_SUMMARY
-          echo "|--------|-------|" >> $GITHUB_STEP_SUMMARY
-          echo "| Pipeline | Baseline |" >> $GITHUB_STEP_SUMMARY
-          echo "| PR Number | ${{ github.event.pull_request.number }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Run ID | ${{ github.run_id }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Run Attempt | ${{ github.run_attempt }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Triggered at | $(date -u +%Y-%m-%dT%H:%M:%SZ) |" >> $GITHUB_STEP_SUMMARY
-          echo "| Compile | ${{ needs.compile.result }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Tests | ${{ needs.test.result }} |" >> $GITHUB_STEP_SUMMARY
+          cat >> "$GITHUB_STEP_SUMMARY" <<EOF
+          ## Baseline Pipeline Metrics
+          | Metric        | Value |
+          |---------------|-------|
+          | Pipeline      | Baseline |
+          | PR Number     | ${{ github.event.pull_request.number }} |
+          | Run ID        | ${{ github.run_id }} |
+          | Run Attempt   | ${{ github.run_attempt }} |
+          | Triggered at  | $(date -u +%Y-%m-%dT%H:%M:%SZ) |
+          | Compile       | ${{ needs.compile.result }} |
+          | Tests         | ${{ needs.test.result }} |
+          | Baseline Gate | ${{ needs.baseline-gate.result }} |
+          EOF
