@@ -25,6 +25,8 @@ public class User extends BaseEntity {
     @Column(nullable = false)
     private String password;
 
+
+
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"))
     @Enumerated(EnumType.STRING)
@@ -32,6 +34,10 @@ public class User extends BaseEntity {
     private Set<Role> roles = new HashSet<>();
 
     private boolean enabled = true;
+
+    private String bio;
+
+    private String avatarUrl;
 
     public User() {}
 
@@ -58,4 +64,10 @@ public class User extends BaseEntity {
 
     public boolean isEnabled() { return enabled; }
     public void setEnabled(boolean enabled) { this.enabled = enabled; }
+
+    public String getBio() { return bio; }
+    public void setBio(String bio) { this.bio = bio; }
+
+    public String getAvatarUrl() { return avatarUrl; }
+    public void setAvatarUrl(String avatarUrl) { this.avatarUrl = avatarUrl; }
 }
