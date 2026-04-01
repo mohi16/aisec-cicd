@@ -14,6 +14,10 @@ public class UserResponse {
     private boolean enabled;
     private LocalDateTime createdAt;
 
+    // new profile fields
+    private String bio;
+    private String avatarUrl;
+
     public static UserResponse from(User user) {
         UserResponse r = new UserResponse();
         r.id = user.getId();
@@ -24,6 +28,8 @@ public class UserResponse {
                 .collect(Collectors.toSet());
         r.enabled = user.isEnabled();
         r.createdAt = user.getCreatedAt();
+        r.bio = user.getBio();
+        r.avatarUrl = user.getAvatarUrl();
         return r;
     }
 
@@ -34,4 +40,6 @@ public class UserResponse {
     public Set<String> getRoles() { return roles; }
     public boolean isEnabled() { return enabled; }
     public LocalDateTime getCreatedAt() { return createdAt; }
+    public String getBio() { return bio; }
+    public String getAvatarUrl() { return avatarUrl; }
 }
