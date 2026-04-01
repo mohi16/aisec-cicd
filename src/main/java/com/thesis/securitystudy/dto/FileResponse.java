@@ -22,7 +22,6 @@ public class FileResponse {
         return r;
     }
 
-    // Getters
     public Long getId() { return id; }
     public String getOriginalFilename() { return originalFilename; }
     public String getContentType() { return contentType; }
