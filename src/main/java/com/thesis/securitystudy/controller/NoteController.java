@@ -3,7 +3,6 @@ package com.thesis.securitystudy.controller;
 import com.thesis.securitystudy.dto.ApiResponse;
 import com.thesis.securitystudy.dto.NoteRequest;
 import com.thesis.securitystudy.dto.NoteResponse;
-import com.thesis.securitystudy.model.Note;
 import com.thesis.securitystudy.model.User;
 import com.thesis.securitystudy.repository.UserRepository;
 import com.thesis.securitystudy.service.NoteService;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/notes")
@@ -30,9 +28,10 @@ public class NoteController {
     }
 
     private User resolveCurrentUser(Authentication auth) {
-        if (auth == null || auth.getName() == null) {
+        if (auth == null || auth.getName() == null || auth.getName().isBlank()) {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Not authenticated");
         }
+
         return userRepository.findByUsername(auth.getName())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.UNAUTHORIZED, "User not found"));
     }
@@ -41,19 +40,21 @@ public class NoteController {
     public ResponseEntity<ApiResponse<NoteResponse>> createNote(@Valid @RequestBody NoteRequest request,
                                                                 Authentication auth) {
         User owner = resolveCurrentUser(auth);
-        Note created = noteService.createNote(request.getTitle(), request.getContent(), request.isEncrypt(), owner);
-        NoteResponse resp = NoteResponse.from(created);
+        NoteResponse created = noteService.createNote(
+                request.getTitle(),
+                request.getContent(),
+                request.isEncrypt(),
+                owner
+        );
+
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(ApiResponse.ok("Note created", resp));
+                .body(ApiResponse.ok("Note created", created));
     }
 
     @GetMapping
     public ResponseEntity<ApiResponse<List<NoteResponse>>> listNotes(Authentication auth) {
         User owner = resolveCurrentUser(auth);
-        List<Note> notes = noteService.getNotes(owner);
-        List<NoteResponse> responses = notes.stream()
-                .map(NoteResponse::from)
-                .collect(Collectors.toList());
+        List<NoteResponse> responses = noteService.getNotes(owner);
         return ResponseEntity.ok(ApiResponse.ok("Notes fetched", responses));
     }
 
@@ -61,8 +62,8 @@ public class NoteController {
     public ResponseEntity<ApiResponse<NoteResponse>> getNote(@PathVariable("id") Long id,
                                                              Authentication auth) {
         User owner = resolveCurrentUser(auth);
-        Note note = noteService.getNoteById(id, owner);
-        return ResponseEntity.ok(ApiResponse.ok("Note fetched", NoteResponse.from(note)));
+        NoteResponse note = noteService.getNoteById(id, owner);
+        return ResponseEntity.ok(ApiResponse.ok("Note fetched", note));
     }
 
     @PutMapping("/{id}")
@@ -70,8 +71,15 @@ public class NoteController {
                                                                 @Valid @RequestBody NoteRequest request,
                                                                 Authentication auth) {
         User owner = resolveCurrentUser(auth);
-        Note updated = noteService.updateNote(id, request.getContent(), request.isEncrypt(), owner);
-        return ResponseEntity.ok(ApiResponse.ok("Note updated", NoteResponse.from(updated)));
+        NoteResponse updated = noteService.updateNote(
+                id,
+                request.getTitle(),
+                request.getContent(),
+                request.isEncrypt(),
+                owner
+        );
+
+        return ResponseEntity.ok(ApiResponse.ok("Note updated", updated));
     }
 
     @DeleteMapping("/{id}")
