@@ -84,15 +84,19 @@ public class NoteService {
     }
 
     private void applyContent(Note note, String content, boolean encrypt) {
-        if (encrypt) {
-            String encrypted = EncryptionUtil.encrypt(content, secretKey);
-            note.setEncryptedContent(encrypted);
-            note.setContent(null);
-            note.setEncrypted(true);
-        } else {
-            note.setContent(content);
-            note.setEncryptedContent(null);
-            note.setEncrypted(false);
+        try {
+            if (encrypt) {
+                String encrypted = EncryptionUtil.encrypt(content, secretKey);
+                note.setEncryptedContent(encrypted);
+                note.setContent(null);
+                note.setEncrypted(true);
+            } else {
+                note.setContent(content);
+                note.setEncryptedContent(null);
+                note.setEncrypted(false);
+            }
+        } catch (Exception e) {
+            throw new IllegalStateException("Encryption failed", e);
         }
     }
 
@@ -105,7 +109,11 @@ public class NoteService {
         entityManager.detach(note);
 
         if (note.isEncrypted()) {
-            note.setContent(EncryptionUtil.decrypt(note.getEncryptedContent(), secretKey));
+            try {
+                note.setContent(EncryptionUtil.decrypt(note.getEncryptedContent(), secretKey));
+            } catch (Exception e) {
+                throw new IllegalStateException("Decryption failed", e);
+            }
         }
 
         return note;
