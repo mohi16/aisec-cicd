@@ -1,6 +1,7 @@
 package com.thesis.securitystudy.dto;
 
 import com.thesis.securitystudy.model.User;
+
 import java.time.LocalDateTime;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -13,6 +14,8 @@ public class UserResponse {
     private Set<String> roles;
     private boolean enabled;
     private LocalDateTime createdAt;
+    private String bio;
+    private String avatarUrl;
 
     public static UserResponse from(User user) {
         UserResponse r = new UserResponse();
@@ -24,14 +27,27 @@ public class UserResponse {
                 .collect(Collectors.toSet());
         r.enabled = user.isEnabled();
         r.createdAt = user.getCreatedAt();
+        r.bio = user.getBio();
+        r.avatarUrl = user.getAvatarUrl();
         return r;
     }
 
-    // Getters
+    public static UserResponse fromPublic(User user) {
+        UserResponse r = new UserResponse();
+        r.id = user.getId();
+        r.username = user.getUsername();
+        r.bio = user.getBio();
+        r.avatarUrl = user.getAvatarUrl();
+        r.createdAt = user.getCreatedAt();
+        return r;
+    }
+
     public Long getId() { return id; }
     public String getUsername() { return username; }
     public String getEmail() { return email; }
     public Set<String> getRoles() { return roles; }
     public boolean isEnabled() { return enabled; }
     public LocalDateTime getCreatedAt() { return createdAt; }
+    public String getBio() { return bio; }
+    public String getAvatarUrl() { return avatarUrl; }
 }
