@@ -42,8 +42,6 @@ public class AdminService {
 
     public void deleteOrDisableUser(Long id) {
         User user = getUserById(id);
-
-        // simpler / safer default: disable instead of hard delete
         user.setEnabled(false);
         userRepository.save(user);
     }
