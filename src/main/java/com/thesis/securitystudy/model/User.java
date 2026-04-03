@@ -33,6 +33,15 @@ public class User extends BaseEntity {
 
     private boolean enabled = true;
 
+    // Neue Felder
+    @Size(max = 500)
+    @Column(length = 500)
+    private String bio;
+
+    @Size(max = 255)
+    @Column(length = 255)
+    private String avatarUrl;
+
     public User() {}
 
     public User(String username, String email, String password) {
@@ -58,4 +67,10 @@ public class User extends BaseEntity {
 
     public boolean isEnabled() { return enabled; }
     public void setEnabled(boolean enabled) { this.enabled = enabled; }
+
+    public String getBio() { return bio; }
+    public void setBio(String bio) { this.bio = bio; }
+
+    public String getAvatarUrl() { return avatarUrl; }
+    public void setAvatarUrl(String avatarUrl) { this.avatarUrl = avatarUrl; }
 }
