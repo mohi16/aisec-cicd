@@ -1,0 +1,32 @@
+======================================================================
+THESIS ANALYSIS SUMMARY
+======================================================================
+
+Included runs: 18
+Runs by condition:
+  - human-only: 6
+  - low-ai: 6
+  - high-ai: 6
+
+RQ1
+  Spearman rho: nan
+  Spearman p:   nan
+  Kruskal H:    nan
+  Kruskal p:    nan
+
+Confirmed vulnerabilities by condition:
+            count  median  mean  min  max
+condition                                
+human-only      6     0.0   0.0    0    0
+low-ai          6     0.0   0.0    0    0
+high-ai         6     0.0   0.0    0    0
+
+RQ2
+  Total confirmed vulnerabilities: 0
+  Total caught by gate:            0
+  Total missed by gate:            0
+
+Duration overhead medians by condition:
+  - human-only: 174.0s
+  - low-ai: 183.5s
+  - high-ai: 249.0s

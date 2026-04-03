@@ -1,130 +1,196 @@
-# Thesis Tools
 
-Python scripts for data collection and analysis. All tools are standalone
-and designed to be run from the repo root.
+# Thesis Study Pipeline Scripts
 
-## Setup
+This folder contains a refactored analysis pipeline for your master's thesis case study.
 
-```bash
-pip install -r tools/requirements.txt
+## What changed
+
+The old scripts mixed three different things:
+
+1. raw scanner alerts
+2. manually confirmed vulnerabilities
+3. pipeline outcomes
+
+These scripts separate them so the analysis matches your study design.
+
+## Files
+
+- `build_manifest.py`  
+  Scans your `results/` directory and creates `runs.csv`.
+
+- `batch_compute_ai_share.py`  
+  Computes AI share for each run from git refs or diff files.
+
+- `batch_collect_metrics.py`  
+  Pulls PR and workflow metrics from the GitHub API.
+
+- `batch_parse_findings.py`  
+  Parses CodeQL, Semgrep, SpotBugs/FindSecBugs, Gitleaks, and Dependency-Check artifacts into `findings_raw.csv`.
+
+- `build_vulnerabilities_template.py`  
+  Converts raw findings into a weakness-level review template, ready for manual triage.
+
+- `analyze.py`  
+  Runs the final statistical analysis using confirmed vulnerabilities and PR-level metrics.
+
+- `common.py`  
+  Shared helpers.
+
+## Recommended workflow
+
+### 1. Build the manifest
+
+```powershell
+python .\build_manifest.py `
+  --results-root "D:\FHTW\MSC\Masterarbeit\POC\thesis-project\results" `
+  --output ".\data\runs.csv"
 ```
 
-## Tool 1: compute_ai_share.py
+- `--results-root` points to the folder that contains `task-*` run directories.
+- `--output` is the manifest CSV to create.
 
-Computes AI Share for a PR by comparing stored AI patches against the final diff.
+Then open `data/runs.csv` and review:
 
-```bash
-# After completing a PR, from the results branch:
-python tools/compute_ai_share.py \
-    --pr 3 \
-    --patches-dir data/ai-patches \
-    --verbose \
-    --output data/ai-share-results.csv
+- `include_in_analysis`
+- `replacement_of`
+- `pr_number`
+- `scaffold_ref`
+- `ai_snapshot_ref`
+- `final_ref`
+
+Only the latest duplicate version per task/condition is included by default, so your original `task-1-human-only` should be excluded and `task-1-human-only-v2` should be included.
+
+### 2. Compute AI share
+
+Preferred mode is git-based because it matches your study design best.
+
+```powershell
+python .\batch_compute_ai_share.py `
+  --manifest ".\data\runs.csv" `
+  --repo-root "D:\FHTW\MSC\Masterarbeit\POC\thesis-project" `
+  --output ".\data\ai_share.csv"
 ```
 
-**Inputs:** AI patch files (`pr-{N}-*.diff`, `pr-{N}-*.txt`) + final diff (`pr-{N}-final.diff`)
-**Output:** AI Share value (0.0–1.0), appended to CSV
+- `--manifest` is the run list.
+- `--repo-root` points to your local git repo.
+- `--output` is the AI-share CSV.
 
-## Tool 2: parse_findings.py
+This uses:
 
-Parses security tool outputs (SARIF/JSON) into a unified findings.csv with
-fingerprints, deduplication, and cross-tool overlap detection.
+- `scaffold_ref`
+- `ai_snapshot_ref`
+- `final_ref`
 
-```bash
-# After downloading pipeline artifacts for a PR:
-python tools/parse_findings.py \
-    --pr 3 \
-    --task T1 \
-    --condition high-ai \
-    --ai-share 0.82 \
-    --pipeline security-gated \
-    --codeql-sarif artifacts/codeql-results/java.sarif \
-    --semgrep-json artifacts/semgrep-results.json \
-    --gitleaks-sarif artifacts/gitleaks-results.sarif \
-    --depcheck-json artifacts/dependency-check/dependency-check-report.json \
-    --output data/findings.csv
+If those refs are missing, the script falls back to diff-file mode when `ai_snapshot_diff_path` and `final_diff_path` exist.
+
+### 3. Collect GitHub PR and CI metrics
+
+```powershell
+python .\batch_collect_metrics.py `
+  --manifest ".\data\runs.csv" `
+  --repo "OWNER/REPO" `
+  --output ".\data\pr_metrics.csv"
 ```
 
-**Inputs:** SARIF/JSON files from CI artifacts
-**Output:** Normalized rows appended to findings.csv
+- `--manifest` is the run list.
+- `--repo` is your GitHub repository in `owner/name` form.
+- `--output` is the metrics CSV.
 
-## Tool 3: collect_metrics.py
+This requires `GITHUB_TOKEN` in your environment.
 
-Pulls CI run data (duration, pass/fail, attempts) from the GitHub Actions API.
+### 4. Parse security findings from artifacts
 
-```bash
-export GITHUB_TOKEN=ghp_your_token_here
-python tools/collect_metrics.py \
-    --repo your-username/security-study \
-    --pr 3 \
-    --task T1 \
-    --condition high-ai \
-    --ai-share 0.82 \
-    --output data/pr-metrics.csv
+```powershell
+python .\batch_parse_findings.py `
+  --manifest ".\data\runs.csv" `
+  --output ".\data\findings_raw.csv"
 ```
 
-**Requires:** `GITHUB_TOKEN` with repo read + actions read permissions
-**Inputs:** GitHub API data
-**Output:** Row appended to pr-metrics.csv + detailed JSON
+- `--manifest` is the run list.
+- `--output` is the normalized raw findings CSV.
 
-## Tool 4: analyze.py
+This script reads artifact paths from the manifest and parses:
 
-Statistical analysis and visualization for RQ1, RQ2, RQ3.
+- CodeQL SARIF
+- Semgrep JSON or SARIF
+- SpotBugs / FindSecBugs XML
+- Gitleaks SARIF or SARF
+- Dependency-Check JSON
 
-```bash
-# Run with your real data:
-python tools/analyze.py \
-    --metrics data/pr-metrics.csv \
-    --findings data/findings.csv \
-    --outdir results/
+### 5. Build the manual triage template
 
-# Test with synthetic demo data (18 PRs):
-python tools/analyze.py --metrics x --findings x --demo --outdir results/
+```powershell
+python .\build_vulnerabilities_template.py `
+  --findings ".\data\findings_raw.csv" `
+  --output ".\data\vulnerabilities.csv"
 ```
 
-**Outputs:**
-- `rq1_baseline_weaknesses.png` — Box plot: weaknesses by condition (baseline)
-- `rq1_scatter.png` — Scatter: AI Share vs weakness count (continuous)
-- `rq2_gate_effectiveness.png` — Paired comparison: baseline vs security-gated
-- `rq2_duration_overhead.png` — Box plot: CI duration overhead
-- `rq3_cwe_heatmap.png` — Heatmap: CWE types by condition
-- `rq3_severity_by_condition.png` — Stacked bar: severity by condition
-- `analysis_summary.txt` — Text summary of all results
+- `--findings` is the raw findings CSV.
+- `--output` is the weakness-level manual review template.
 
-## Typical Workflow Per PR
+Then open `data/vulnerabilities.csv` and review every row.
 
-```bash
-# 1. After PR is ready (on your feature branch):
-git diff main...HEAD > pr-3-final.diff
+At minimum, fill:
 
-# 2. Open PR, wait for both pipelines to complete
+- `confirmed_status`  
+  Use `TP`, `FP`, or `UNSURE`.
 
-# 3. Download artifacts from GitHub Actions UI
+- `reviewer_notes`
 
-# 4. Switch to results branch:
-git checkout results
+- `manual_severity` and `manual_cwe_id` when tool metadata is wrong.
 
-# 5. Move AI patches and final diff:
-cp ~/scratch/pr-3-*.{diff,txt} data/ai-patches/
+For manual-review-only issues that no tool found, add a new row with:
 
-# 6. Compute AI Share:
-python tools/compute_ai_share.py --pr 3 --patches-dir data/ai-patches --verbose
+- `manual_only=true`
+- `detected_by_gate=false`
+- `escaped_gate=true`
+- `source=manual`
+- `confirmed_status=TP`
 
-# 7. Parse findings:
-python tools/parse_findings.py --pr 3 --task T1 --condition high-ai \
-    --ai-share 0.82 --pipeline security-gated \
-    --codeql-sarif artifacts/codeql-results/java.sarif \
-    --semgrep-json artifacts/semgrep-results.json
+### 6. Run the final analysis
 
-# 8. Collect pipeline metrics:
-python tools/collect_metrics.py --repo you/security-study --pr 3 \
-    --task T1 --condition high-ai --ai-share 0.82
-
-# 9. Commit and return to main:
-git add -A && git commit -m "PR #3 results"
-git checkout main
-
-# 10. After all 18 PRs, run analysis:
-git checkout results
-python tools/analyze.py --metrics data/pr-metrics.csv --findings data/findings.csv
+```powershell
+python .\analyze.py `
+  --manifest ".\data\runs.csv" `
+  --metrics ".\data\pr_metrics.csv" `
+  --ai-share ".\data\ai_share.csv" `
+  --vulnerabilities ".\data\vulnerabilities.csv" `
+  --outdir ".\analysis"
 ```
+
+- `--manifest` is the run metadata.
+- `--metrics` is the PR and CI metrics file.
+- `--ai-share` is the AI-share file.
+- `--vulnerabilities` is the manually confirmed weakness-level dataset.
+- `--outdir` is where plots and summaries go.
+
+## Why this matches the thesis better
+
+This version makes the study design explicit:
+
+- `runs.csv` = experimental units and inclusion decisions
+- `ai_share.csv` = AI contribution measure
+- `pr_metrics.csv` = pipeline cost and pass/fail data
+- `findings_raw.csv` = raw scanner alerts
+- `vulnerabilities.csv` = manually confirmed ground truth
+- `analysis/` = final RQ outputs
+
+That lets you answer:
+
+- **RQ1** with confirmed vulnerabilities per PR
+- **RQ2** with gate catch/miss coverage and CI overhead
+- **RQ3** with confirmed CWE and severity patterns
+
+## Python packages
+
+Install these first:
+
+```powershell
+pip install pandas matplotlib numpy scipy requests
+```
+
+## Notes
+
+- SpotBugs / FindSecBugs support is included.
+- Gitleaks `.sarif` and `.sarf` are both supported.
+- The analysis script uses the manually reviewed vulnerability table, not raw findings, for the final RQs.
