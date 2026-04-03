@@ -2,29 +2,60 @@ package com.thesis.securitystudy.service;
 
 import com.thesis.securitystudy.model.Note;
 import com.thesis.securitystudy.model.User;
+import com.thesis.securitystudy.repository.NoteRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.List;
 
 @Service
 public class SearchService {
 
-    // Du kannst hier bei Bedarf Repositories via Konstruktor injizieren (NoteRepository, UserRepository, ...)
-    public SearchService() {
-        // TODO: inject repositories via constructor if needed
+    private final NoteRepository noteRepository;
+
+    public SearchService(NoteRepository noteRepository) {
+        this.noteRepository = noteRepository;
     }
 
-    /**
-     * Search notes based on query and visibility.
-     *
-     * @param q           free-text query (may be null or empty)
-     * @param publicOnly  if true -> only public notes; if false -> only user's notes; if null -> both with filtering rules
-     * @param sortBy      sorting key (e.g. "createdAt", "title"), may be null
-     * @param currentUser current authenticated User (may be null for unauthenticated searches)
-     * @return list of matching Note entities (TODO: implement)
-     */
     public List<Note> search(String q, Boolean publicOnly, String sortBy, User currentUser) {
-        // TODO: implement search logic and visibility filtering
-        throw new UnsupportedOperationException("Search not implemented yet");
+        List<Note> results;
+
+        String query = q != null ? q.trim() : "";
+
+        if (Boolean.TRUE.equals(publicOnly)) {
+            if (query.isEmpty()) {
+                results = noteRepository.findByIsPublicTrue();
+            } else {
+                results = noteRepository.searchPublicByQuery(query);
+            }
+        } else {
+            if (query.isEmpty()) {
+                results = noteRepository.findByOwnerOrderByCreatedAtDesc(currentUser);
+            } else {
+                results = noteRepository.searchByOwnerAndQuery(currentUser, query);
+            }
+        }
+
+        sortResults(results, sortBy);
+        return results;
+    }
+
+    private void sortResults(List<Note> notes, String sortBy) {
+        String sortField = sortBy != null ? sortBy.trim() : "";
+
+        if ("title".equalsIgnoreCase(sortField)) {
+            notes.sort(Comparator.comparing(
+                    note -> note.getTitle() == null ? "" : note.getTitle().toLowerCase()
+            ));
+            return;
+        }
+
+        if ("id".equalsIgnoreCase(sortField)) {
+            notes.sort(Comparator.comparing(Note::getId));
+            return;
+        }
+
+        notes.sort(Comparator.comparing(Note::getCreatedAt,
+                Comparator.nullsLast(Comparator.reverseOrder())));
     }
 }

@@ -26,7 +26,6 @@ public class SearchResponse {
         return r;
     }
 
-    // Getter-Methoden
     public Long getId() { return id; }
     public String getTitle() { return title; }
     public String getContentSnippet() { return contentSnippet; }
