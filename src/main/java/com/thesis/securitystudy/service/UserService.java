@@ -4,42 +4,70 @@ import com.thesis.securitystudy.dto.ChangePasswordRequest;
 import com.thesis.securitystudy.dto.UpdateProfileRequest;
 import com.thesis.securitystudy.model.User;
 import com.thesis.securitystudy.repository.UserRepository;
+import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 @Service
 public class UserService {
 
     private final UserRepository userRepository;
-    // ggf. später: PasswordEncoder, AuditService, etc.
+    private final PasswordEncoder passwordEncoder;
 
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
-    /**
-     * Update user's profile fields (username, email, bio, avatarUrl).
-     * TODO: implement validation, uniqueness checks, persist changes.
-     */
     public User updateProfile(User currentUser, UpdateProfileRequest request) {
-        // TODO: implement profile update logic (check username/email uniqueness, validation, save)
-        throw new UnsupportedOperationException("TODO: implement updateProfile");
+        String newUsername = request.getUsername().trim();
+        String newEmail = request.getEmail().trim().toLowerCase();
+
+        if (!newUsername.equals(currentUser.getUsername())) {
+            userRepository.findByUsername(newUsername).ifPresent(existing -> {
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Username already taken");
+            });
+        }
+
+        if (!newEmail.equalsIgnoreCase(currentUser.getEmail())) {
+            userRepository.findByEmail(newEmail).ifPresent(existing -> {
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Email already in use");
+            });
+        }
+
+        currentUser.setUsername(newUsername);
+        currentUser.setEmail(newEmail);
+        currentUser.setBio(normalizeOptionalText(request.getBio()));
+        currentUser.setAvatarUrl(normalizeOptionalText(request.getAvatarUrl()));
+
+        return userRepository.save(currentUser);
     }
 
-    /**
-     * Change the user's password after verifying currentPassword.
-     * TODO: implement verification using PasswordEncoder and save new password.
-     */
     public void changePassword(User currentUser, ChangePasswordRequest request) {
-        // TODO: implement password change (verify current password, encode new password, save)
-        throw new UnsupportedOperationException("TODO: implement changePassword");
+        if (!passwordEncoder.matches(request.getCurrentPassword(), currentUser.getPassword())) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Current password is incorrect");
+        }
+
+        if (request.getCurrentPassword().equals(request.getNewPassword())) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "New password must be different");
+        }
+
+        currentUser.setPassword(passwordEncoder.encode(request.getNewPassword()));
+        userRepository.save(currentUser);
     }
 
-    /**
-     * Retrieve a user by id.
-     * TODO: implement retrieval and handling for not found.
-     */
     public User getUserById(Long id) {
-        // TODO: implement retrieval (e.g., userRepository.findById(id).orElseThrow(...))
-        throw new UnsupportedOperationException("TODO: implement getUserById");
+        return userRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
+    }
+
+    private String normalizeOptionalText(String value) {
+        if (value == null) {
+            return null;
+        }
+
+        String trimmed = value.trim();
+        return trimmed.isEmpty() ? null : trimmed;
     }
 }
