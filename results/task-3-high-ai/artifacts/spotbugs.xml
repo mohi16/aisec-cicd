@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.3" sequence="0" timestamp="1775229025710" analysisTimestamp="1775229036430" release="">
+  <Project projectName="">
+    <Jar>target/classes</Jar>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/boot/spring-boot-starter-web/3.4.1/spring-boot-starter-web-3.4.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/boot/spring-boot-starter/3.4.1/spring-boot-starter-3.4.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/boot/spring-boot/3.4.1/spring-boot-3.4.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/3.4.1/spring-boot-autoconfigure-3.4.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/boot/spring-boot-starter-logging/3.4.1/spring-boot-starter-logging-3.4.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/ch/qos/logback/logback-classic/1.5.12/logback-classic-1.5.12.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/ch/qos/logback/logback-core/1.5.12/logback-core-1.5.12.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.24.3/log4j-to-slf4j-2.24.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/apache/logging/log4j/log4j-api/2.24.3/log4j-api-2.24.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/slf4j/jul-to-slf4j/2.0.16/jul-to-slf4j-2.0.16.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/yaml/snakeyaml/2.3/snakeyaml-2.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/boot/spring-boot-starter-json/3.4.1/spring-boot-starter-json-3.4.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.18.2/jackson-datatype-jdk8-2.18.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.18.2/jackson-datatype-jsr310-2.18.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.18.2/jackson-module-parameter-names-2.18.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/3.4.1/spring-boot-starter-tomcat-3.4.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.34/tomcat-embed-core-10.1.34.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/10.1.34/tomcat-embed-websocket-10.1.34.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/spring-web/6.2.1/spring-web-6.2.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/spring-beans/6.2.1/spring-beans-6.2.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/spring-webmvc/6.2.1/spring-webmvc-6.2.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/spring-context/6.2.1/spring-context-6.2.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/spring-expression/6.2.1/spring-expression-6.2.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/boot/spring-boot-starter-security/3.4.1/spring-boot-starter-security-3.4.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/spring-aop/6.2.1/spring-aop-6.2.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/security/spring-security-config/6.4.2/spring-security-config-6.4.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/security/spring-security-web/6.4.2/spring-security-web-6.4.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/boot/spring-boot-starter-data-jpa/3.4.1/spring-boot-starter-data-jpa-3.4.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/boot/spring-boot-starter-jdbc/3.4.1/spring-boot-starter-jdbc-3.4.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/com/zaxxer/HikariCP/5.1.0/HikariCP-5.1.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/spring-jdbc/6.2.1/spring-jdbc-6.2.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/hibernate/orm/hibernate-core/6.6.4.Final/hibernate-core-6.6.4.Final.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/jakarta/transaction/jakarta.transaction-api/2.0.1/jakarta.transaction-api-2.0.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/jboss/logging/jboss-logging/3.6.1.Final/jboss-logging-3.6.1.Final.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/hibernate/common/hibernate-commons-annotations/7.0.3.Final/hibernate-commons-annotations-7.0.3.Final.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/io/smallrye/jandex/3.2.0/jandex-3.2.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/com/fasterxml/classmate/1.7.0/classmate-1.7.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/net/bytebuddy/byte-buddy/1.15.11/byte-buddy-1.15.11.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/glassfish/jaxb/jaxb-runtime/4.0.5/jaxb-runtime-4.0.5.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/glassfish/jaxb/jaxb-core/4.0.5/jaxb-core-4.0.5.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/eclipse/angus/angus-activation/2.0.2/angus-activation-2.0.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/glassfish/jaxb/txw2/4.0.5/txw2-4.0.5.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/com/sun/istack/istack-commons-runtime/4.1.2/istack-commons-runtime-4.1.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/jakarta/inject/jakarta.inject-api/2.0.1/jakarta.inject-api-2.0.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/antlr/antlr4-runtime/4.13.0/antlr4-runtime-4.13.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/data/spring-data-jpa/3.4.1/spring-data-jpa-3.4.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/data/spring-data-commons/3.4.1/spring-data-commons-3.4.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/spring-orm/6.2.1/spring-orm-6.2.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/spring-tx/6.2.1/spring-tx-6.2.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/slf4j/slf4j-api/2.0.16/slf4j-api-2.0.16.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/spring-aspects/6.2.1/spring-aspects-6.2.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/aspectj/aspectjweaver/1.9.22.1/aspectjweaver-1.9.22.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/boot/spring-boot-starter-validation/3.4.1/spring-boot-starter-validation-3.4.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/10.1.34/tomcat-embed-el-10.1.34.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/hibernate/validator/hibernate-validator/8.0.2.Final/hibernate-validator-8.0.2.Final.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/jakarta/validation/jakarta.validation-api/3.0.2/jakarta.validation-api-3.0.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/boot/spring-boot-starter-actuator/3.4.1/spring-boot-starter-actuator-3.4.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/boot/spring-boot-actuator-autoconfigure/3.4.1/spring-boot-actuator-autoconfigure-3.4.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/boot/spring-boot-actuator/3.4.1/spring-boot-actuator-3.4.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/io/micrometer/micrometer-observation/1.14.2/micrometer-observation-1.14.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/io/micrometer/micrometer-commons/1.14.2/micrometer-commons-1.14.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/io/micrometer/micrometer-jakarta9/1.14.2/micrometer-jakarta9-1.14.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/io/micrometer/micrometer-core/1.14.2/micrometer-core-1.14.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/hdrhistogram/HdrHistogram/2.2.2/HdrHistogram-2.2.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/latencyutils/LatencyUtils/2.0.3/LatencyUtils-2.0.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/io/jsonwebtoken/jjwt-api/0.12.6/jjwt-api-0.12.6.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/io/jsonwebtoken/jjwt-impl/0.12.6/jjwt-impl-0.12.6.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/io/jsonwebtoken/jjwt-jackson/0.12.6/jjwt-jackson-0.12.6.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.18.2/jackson-databind-2.18.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.18.2/jackson-annotations-2.18.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.18.2/jackson-core-2.18.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/com/h2database/h2/2.3.232/h2-2.3.232.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/postgresql/postgresql/42.7.4/postgresql-42.7.4.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/checkerframework/checker-qual/3.42.0/checker-qual-3.42.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/boot/spring-boot-starter-test/3.4.1/spring-boot-starter-test-3.4.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/boot/spring-boot-test/3.4.1/spring-boot-test-3.4.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/boot/spring-boot-test-autoconfigure/3.4.1/spring-boot-test-autoconfigure-3.4.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/com/jayway/jsonpath/json-path/2.9.0/json-path-2.9.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/4.0.2/jakarta.xml.bind-api-4.0.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/jakarta/activation/jakarta.activation-api/2.1.3/jakarta.activation-api-2.1.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/net/minidev/json-smart/2.5.1/json-smart-2.5.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/net/minidev/accessors-smart/2.5.1/accessors-smart-2.5.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/ow2/asm/asm/9.6/asm-9.6.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/assertj/assertj-core/3.26.3/assertj-core-3.26.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/awaitility/awaitility/4.2.2/awaitility-4.2.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/junit/jupiter/junit-jupiter/5.11.4/junit-jupiter-5.11.4.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.11.4/junit-jupiter-api-5.11.4.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/junit/platform/junit-platform-commons/1.11.4/junit-platform-commons-1.11.4.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.11.4/junit-jupiter-params-5.11.4.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.11.4/junit-jupiter-engine-5.11.4.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/junit/platform/junit-platform-engine/1.11.4/junit-platform-engine-1.11.4.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/mockito/mockito-core/5.14.2/mockito-core-5.14.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/net/bytebuddy/byte-buddy-agent/1.15.11/byte-buddy-agent-1.15.11.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/mockito/mockito-junit-jupiter/5.14.2/mockito-junit-jupiter-5.14.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/skyscreamer/jsonassert/1.5.3/jsonassert-1.5.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/spring-core/6.2.1/spring-core-6.2.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/spring-jcl/6.2.1/spring-jcl-6.2.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/spring-test/6.2.1/spring-test-6.2.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/xmlunit/xmlunit-core/2.10.0/xmlunit-core-2.10.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/security/spring-security-test/6.4.2/spring-security-test-6.4.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/security/spring-security-core/6.4.2/spring-security-core-6.4.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/security/spring-security-crypto/6.4.2/spring-security-crypto-6.4.2.jar</AuxClasspathEntry>
+    <Plugin id="com.h3xstream.findsecbugs" enabled="true"/>
+  </Project>
+  <BugInstance type="THROWS_METHOD_THROWS_RUNTIMEEXCEPTION" priority="3" rank="19" abbrev="THROWS" category="BAD_PRACTICE" instanceHash="3d448dc7cdc6ad662a711be0c91c1a41" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Method intentionally throws RuntimeException.</ShortMessage>
+    <LongMessage>Method intentionally throws RuntimeException.</LongMessage>
+    <Class classname="com.thesis.securitystudy.service.NoteService" primary="true" classAnnotationNames="org.springframework.stereotype.Service">
+      <SourceLine classname="com.thesis.securitystudy.service.NoteService" start="28" end="183" sourcefile="NoteService.java" sourcepath="com/thesis/securitystudy/service/NoteService.java">
+        <Message>At NoteService.java:[lines 28-183]</Message>
+      </SourceLine>
+      <Message>In class com.thesis.securitystudy.service.NoteService</Message>
+    </Class>
+    <Method classname="com.thesis.securitystudy.service.NoteService" name="toResponse" signature="(Lcom/thesis/securitystudy/model/Note;)Lcom/thesis/securitystudy/dto/NoteResponse;" isStatic="false" primary="true" classAnnotationNames="org.springframework.stereotype.Service">
+      <SourceLine classname="com.thesis.securitystudy.service.NoteService" start="47" end="93" startBytecode="0" endBytecode="716" sourcefile="NoteService.java" sourcepath="com/thesis/securitystudy/service/NoteService.java"/>
+      <Message>In method com.thesis.securitystudy.service.NoteService.toResponse(Note)</Message>
+    </Method>
+    <SourceLine classname="com.thesis.securitystudy.service.NoteService" primary="true" start="93" end="93" startBytecode="278" endBytecode="278" sourcefile="NoteService.java" sourcepath="com/thesis/securitystudy/service/NoteService.java">
+      <Message>At NoteService.java:[line 93]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DMI_RANDOM_USED_ONLY_ONCE" priority="1" rank="14" abbrev="DMI" category="BAD_PRACTICE" instanceHash="7d8ec10d50a13dfc7f1d1b13f436183b" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="440">
+    <ShortMessage>Random object created and used only once</ShortMessage>
+    <LongMessage>Random object created and used only once in com.thesis.securitystudy.util.EncryptionUtil.encrypt(String)</LongMessage>
+    <Class classname="com.thesis.securitystudy.util.EncryptionUtil" primary="true" classAnnotationNames="org.springframework.stereotype.Component">
+      <SourceLine classname="com.thesis.securitystudy.util.EncryptionUtil" start="16" end="76" sourcefile="EncryptionUtil.java" sourcepath="com/thesis/securitystudy/util/EncryptionUtil.java">
+        <Message>At EncryptionUtil.java:[lines 16-76]</Message>
+      </SourceLine>
+      <Message>In class com.thesis.securitystudy.util.EncryptionUtil</Message>
+    </Class>
+    <Method classname="com.thesis.securitystudy.util.EncryptionUtil" name="encrypt" signature="(Ljava/lang/String;)Ljava/lang/String;" isStatic="false" primary="true" classAnnotationNames="org.springframework.stereotype.Component">
+      <SourceLine classname="com.thesis.securitystudy.util.EncryptionUtil" start="39" end="56" startBytecode="0" endBytecode="309" sourcefile="EncryptionUtil.java" sourcepath="com/thesis/securitystudy/util/EncryptionUtil.java"/>
+      <Message>In method com.thesis.securitystudy.util.EncryptionUtil.encrypt(String)</Message>
+    </Method>
+    <Method classname="java.security.SecureRandom" name="nextBytes" signature="([B)V" isStatic="false" role="METHOD_CALLED" classAnnotationNames="jdk.internal.util.random.RandomSupport$RandomGeneratorProperties">
+      <SourceLine classname="java.security.SecureRandom" start="766" end="774" startBytecode="0" endBytecode="168" sourcefile="SecureRandom.java" sourcepath="java/security/SecureRandom.java"/>
+      <Message>Called method java.security.SecureRandom.nextBytes(byte[])</Message>
+    </Method>
+    <SourceLine classname="com.thesis.securitystudy.util.EncryptionUtil" primary="true" start="41" end="41" startBytecode="15" endBytecode="15" sourcefile="EncryptionUtil.java" sourcepath="com/thesis/securitystudy/util/EncryptionUtil.java">
+      <Message>At EncryptionUtil.java:[line 41]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="REC_CATCH_EXCEPTION" priority="3" rank="20" abbrev="REC" category="STYLE" instanceHash="34b839c33697bf97c8d485b8813c66df" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="396">
+    <ShortMessage>Exception is caught when Exception is not thrown</ShortMessage>
+    <LongMessage>Exception is caught when Exception is not thrown in com.thesis.securitystudy.util.EncryptionUtil.decrypt(String)</LongMessage>
+    <Class classname="com.thesis.securitystudy.util.EncryptionUtil" primary="true" classAnnotationNames="org.springframework.stereotype.Component">
+      <SourceLine classname="com.thesis.securitystudy.util.EncryptionUtil" start="16" end="76" sourcefile="EncryptionUtil.java" sourcepath="com/thesis/securitystudy/util/EncryptionUtil.java">
+        <Message>At EncryptionUtil.java:[lines 16-76]</Message>
+      </SourceLine>
+      <Message>In class com.thesis.securitystudy.util.EncryptionUtil</Message>
+    </Class>
+    <Method classname="com.thesis.securitystudy.util.EncryptionUtil" name="decrypt" signature="(Ljava/lang/String;)Ljava/lang/String;" isStatic="false" primary="true" classAnnotationNames="org.springframework.stereotype.Component">
+      <SourceLine classname="com.thesis.securitystudy.util.EncryptionUtil" start="62" end="76" startBytecode="0" endBytecode="312" sourcefile="EncryptionUtil.java" sourcepath="com/thesis/securitystudy/util/EncryptionUtil.java"/>
+      <Message>In method com.thesis.securitystudy.util.EncryptionUtil.decrypt(String)</Message>
+    </Method>
+    <SourceLine classname="com.thesis.securitystudy.util.EncryptionUtil" primary="true" start="75" end="75" startBytecode="97" endBytecode="97" sourcefile="EncryptionUtil.java" sourcepath="com/thesis/securitystudy/util/EncryptionUtil.java">
+      <Message>At EncryptionUtil.java:[line 75]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="REC_CATCH_EXCEPTION" priority="3" rank="20" abbrev="REC" category="STYLE" instanceHash="3a7d63237c6f665cf20ed1cfe89d47fc" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="396">
+    <ShortMessage>Exception is caught when Exception is not thrown</ShortMessage>
+    <LongMessage>Exception is caught when Exception is not thrown in com.thesis.securitystudy.util.EncryptionUtil.encrypt(String)</LongMessage>
+    <Class classname="com.thesis.securitystudy.util.EncryptionUtil" primary="true" classAnnotationNames="org.springframework.stereotype.Component">
+      <SourceLine classname="com.thesis.securitystudy.util.EncryptionUtil" start="16" end="76" sourcefile="EncryptionUtil.java" sourcepath="com/thesis/securitystudy/util/EncryptionUtil.java">
+        <Message>At EncryptionUtil.java:[lines 16-76]</Message>
+      </SourceLine>
+      <Message>In class com.thesis.securitystudy.util.EncryptionUtil</Message>
+    </Class>
+    <Method classname="com.thesis.securitystudy.util.EncryptionUtil" name="encrypt" signature="(Ljava/lang/String;)Ljava/lang/String;" isStatic="false" primary="true" classAnnotationNames="org.springframework.stereotype.Component">
+      <SourceLine classname="com.thesis.securitystudy.util.EncryptionUtil" start="39" end="56" startBytecode="0" endBytecode="309" sourcefile="EncryptionUtil.java" sourcepath="com/thesis/securitystudy/util/EncryptionUtil.java"/>
+      <Message>In method com.thesis.securitystudy.util.EncryptionUtil.encrypt(String)</Message>
+    </Method>
+    <SourceLine classname="com.thesis.securitystudy.util.EncryptionUtil" primary="true" start="55" end="55" startBytecode="106" endBytecode="106" sourcefile="EncryptionUtil.java" sourcepath="com/thesis/securitystudy/util/EncryptionUtil.java">
+      <Message>At EncryptionUtil.java:[line 55]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="THROWS_METHOD_THROWS_RUNTIMEEXCEPTION" priority="3" rank="19" abbrev="THROWS" category="BAD_PRACTICE" instanceHash="1fa4b8d3526356f1c2f643fb1ede6907" instanceOccurrenceNum="0" instanceOccurrenceMax="1">
+    <ShortMessage>Method intentionally throws RuntimeException.</ShortMessage>
+    <LongMessage>Method intentionally throws RuntimeException.</LongMessage>
+    <Class classname="com.thesis.securitystudy.util.EncryptionUtil" primary="true" classAnnotationNames="org.springframework.stereotype.Component">
+      <SourceLine classname="com.thesis.securitystudy.util.EncryptionUtil" start="16" end="76" sourcefile="EncryptionUtil.java" sourcepath="com/thesis/securitystudy/util/EncryptionUtil.java">
+        <Message>At EncryptionUtil.java:[lines 16-76]</Message>
+      </SourceLine>
+      <Message>In class com.thesis.securitystudy.util.EncryptionUtil</Message>
+    </Class>
+    <Method classname="com.thesis.securitystudy.util.EncryptionUtil" name="decrypt" signature="(Ljava/lang/String;)Ljava/lang/String;" isStatic="false" primary="true" classAnnotationNames="org.springframework.stereotype.Component">
+      <SourceLine classname="com.thesis.securitystudy.util.EncryptionUtil" start="62" end="76" startBytecode="0" endBytecode="312" sourcefile="EncryptionUtil.java" sourcepath="com/thesis/securitystudy/util/EncryptionUtil.java"/>
+      <Message>In method com.thesis.securitystudy.util.EncryptionUtil.decrypt(String)</Message>
+    </Method>
+    <SourceLine classname="com.thesis.securitystudy.util.EncryptionUtil" primary="true" start="64" end="64" startBytecode="24" endBytecode="24" sourcefile="EncryptionUtil.java" sourcepath="com/thesis/securitystudy/util/EncryptionUtil.java">
+      <Message>At EncryptionUtil.java:[line 64]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="THROWS_METHOD_THROWS_RUNTIMEEXCEPTION" priority="3" rank="19" abbrev="THROWS" category="BAD_PRACTICE" instanceHash="1fa4b8d3526356f1c2f643fb1ede6907" instanceOccurrenceNum="1" instanceOccurrenceMax="1">
+    <ShortMessage>Method intentionally throws RuntimeException.</ShortMessage>
+    <LongMessage>Method intentionally throws RuntimeException.</LongMessage>
+    <Class classname="com.thesis.securitystudy.util.EncryptionUtil" primary="true" classAnnotationNames="org.springframework.stereotype.Component">
+      <SourceLine classname="com.thesis.securitystudy.util.EncryptionUtil" start="16" end="76" sourcefile="EncryptionUtil.java" sourcepath="com/thesis/securitystudy/util/EncryptionUtil.java">
+        <Message>At EncryptionUtil.java:[lines 16-76]</Message>
+      </SourceLine>
+      <Message>In class com.thesis.securitystudy.util.EncryptionUtil</Message>
+    </Class>
+    <Method classname="com.thesis.securitystudy.util.EncryptionUtil" name="decrypt" signature="(Ljava/lang/String;)Ljava/lang/String;" isStatic="false" primary="true" classAnnotationNames="org.springframework.stereotype.Component">
+      <SourceLine classname="com.thesis.securitystudy.util.EncryptionUtil" start="62" end="76" startBytecode="0" endBytecode="312" sourcefile="EncryptionUtil.java" sourcepath="com/thesis/securitystudy/util/EncryptionUtil.java"/>
+      <Message>In method com.thesis.securitystudy.util.EncryptionUtil.decrypt(String)</Message>
+    </Method>
+    <SourceLine classname="com.thesis.securitystudy.util.EncryptionUtil" primary="true" start="76" end="76" startBytecode="108" endBytecode="108" sourcefile="EncryptionUtil.java" sourcepath="com/thesis/securitystudy/util/EncryptionUtil.java">
+      <Message>At EncryptionUtil.java:[line 76]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="THROWS_METHOD_THROWS_RUNTIMEEXCEPTION" priority="3" rank="19" abbrev="THROWS" category="BAD_PRACTICE" instanceHash="81acae8070d1f488fce34760b29b12dc" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Method intentionally throws RuntimeException.</ShortMessage>
+    <LongMessage>Method intentionally throws RuntimeException.</LongMessage>
+    <Class classname="com.thesis.securitystudy.util.EncryptionUtil" primary="true" classAnnotationNames="org.springframework.stereotype.Component">
+      <SourceLine classname="com.thesis.securitystudy.util.EncryptionUtil" start="16" end="76" sourcefile="EncryptionUtil.java" sourcepath="com/thesis/securitystudy/util/EncryptionUtil.java">
+        <Message>At EncryptionUtil.java:[lines 16-76]</Message>
+      </SourceLine>
+      <Message>In class com.thesis.securitystudy.util.EncryptionUtil</Message>
+    </Class>
+    <Method classname="com.thesis.securitystudy.util.EncryptionUtil" name="encrypt" signature="(Ljava/lang/String;)Ljava/lang/String;" isStatic="false" primary="true" classAnnotationNames="org.springframework.stereotype.Component">
+      <SourceLine classname="com.thesis.securitystudy.util.EncryptionUtil" start="39" end="56" startBytecode="0" endBytecode="309" sourcefile="EncryptionUtil.java" sourcepath="com/thesis/securitystudy/util/EncryptionUtil.java"/>
+      <Message>In method com.thesis.securitystudy.util.EncryptionUtil.encrypt(String)</Message>
+    </Method>
+    <SourceLine classname="com.thesis.securitystudy.util.EncryptionUtil" primary="true" start="56" end="56" startBytecode="117" endBytecode="117" sourcefile="EncryptionUtil.java" sourcepath="com/thesis/securitystudy/util/EncryptionUtil.java">
+      <Message>At EncryptionUtil.java:[line 56]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="BAD_PRACTICE">
+    <Description>Bad practice</Description>
+  </BugCategory>
+  <BugCategory category="STYLE">
+    <Description>Dodgy code</Description>
+  </BugCategory>
+  <BugPattern type="DMI_RANDOM_USED_ONLY_ONCE" abbrev="DMI" category="BAD_PRACTICE">
+    <ShortDescription>Random object created and used only once</ShortDescription>
+    <Details><![CDATA[
+
+<p> This code creates a java.util.Random object, uses it to generate one random number, and then discards
+the Random object. This produces mediocre quality random numbers and is inefficient.
+If possible, rewrite the code so that the Random object is created once and saved, and each time a new random number
+is required invoke a method on the existing Random object to obtain it.
+</p>
+
+<p>If it is important that the generated Random numbers not be guessable, you <em>must</em> not create a new Random for each random
+number; the values are too easily guessable. You should strongly consider using a java.security.SecureRandom instead
+(and avoid allocating a new SecureRandom for each random number needed).
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="THROWS_METHOD_THROWS_RUNTIMEEXCEPTION" abbrev="THROWS" category="BAD_PRACTICE">
+    <ShortDescription>Method intentionally throws RuntimeException.</ShortDescription>
+    <Details><![CDATA[
+      
+        <p>
+        Method intentionally throws RuntimeException.<br>
+
+        According to the <a href="https://wiki.sei.cmu.edu/confluence/display/java/ERR07-J.+Do+not+throw+RuntimeException%2C+Exception%2C+or+Throwable">SEI CERT ERR07-J rule</a>,
+        throwing a RuntimeException may cause errors, like the caller not being able to examine the exception and therefore cannot properly recover from it.<br>
+
+        Moreover, throwing a RuntimeException would force the caller to catch RuntimeException and therefore violate the
+        <a href="https://wiki.sei.cmu.edu/confluence/display/java/ERR08-J.+Do+not+catch+NullPointerException+or+any+of+its+ancestors">SEI CERT ERR08-J rule</a>.<br>
+
+        Please note that you can derive from Exception or RuntimeException and may throw a new instance of that exception.
+        </p>
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="REC_CATCH_EXCEPTION" abbrev="REC" category="STYLE" cweid="396">
+    <ShortDescription>Exception is caught when Exception is not thrown</ShortDescription>
+    <Details><![CDATA[
+  
+  <p>
+  This method uses a try-catch block that catches Exception objects, but Exception is not
+  thrown within the try block, and RuntimeException is not explicitly caught.  It is a common bug pattern to
+  say try { ... } catch (Exception e) { something } as a shorthand for catching a number of types of exception
+  each of whose catch blocks is identical, but this construct also accidentally catches RuntimeException as well,
+  masking potential bugs.
+  </p>
+  <p>A better approach is to either explicitly catch the specific exceptions that are thrown,
+  or to explicitly catch RuntimeException exception, rethrow it, and then catch all non-Runtime Exceptions, as shown below:</p>
+<pre><code>try {
+    ...
+} catch (RuntimeException e) {
+    throw e;
+} catch (Exception e) {
+    ... deal with all non-runtime exceptions ...
+}
+</code></pre>
+  
+     ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="DMI" cweid="440">
+    <Description>Dubious method invocation</Description>
+  </BugCode>
+  <BugCode abbrev="REC">
+    <Description>RuntimeException capture</Description>
+  </BugCode>
+  <BugCode abbrev="THROWS">
+    <Description>Exception throwing related problems</Description>
+  </BugCode>
+  <Errors errors="3" missingClasses="4">
+    <Error>
+      <ErrorMessage>Exception analyzing com.thesis.securitystudy.controller.UserController using detector edu.umd.cs.findbugs.DetectorToDetector2Adapter</ErrorMessage>
+      <Exception>java.lang.IllegalArgumentException: Invalid class name com/thesis/securitystudy/dto/ApiResponse&lt;Ljava/util/Map&lt;Ljava/lang/String;Ljava/lang/Object</Exception>
+      <StackTrace>edu.umd.cs.findbugs.classfile.ClassDescriptor.&lt;init&gt;(ClassDescriptor.java:59)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.classfile.DescriptorFactory.getClassDescriptor(DescriptorFactory.java:128)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.AnalysisCacheToRepositoryAdapter.loadClass(AnalysisCacheToRepositoryAdapter.java:90)</StackTrace>
+      <StackTrace>org.apache.bcel.Repository.lookupClass(Repository.java:180)</StackTrace>
+      <StackTrace>com.h3xstream.findsecbugs.spring.SignatureParserWithGeneric.typeToJavaClass(SignatureParserWithGeneric.java:75)</StackTrace>
+      <StackTrace>com.h3xstream.findsecbugs.spring.SignatureParserWithGeneric.getReturnClasses(SignatureParserWithGeneric.java:60)</StackTrace>
+      <StackTrace>com.h3xstream.findsecbugs.spring.SpringEntityLeakDetector.analyzeMethod(SpringEntityLeakDetector.java:112)</StackTrace>
+      <StackTrace>com.h3xstream.findsecbugs.spring.SpringEntityLeakDetector.visitClassContext(SpringEntityLeakDetector.java:69)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.DetectorToDetector2Adapter.visitClass(DetectorToDetector2Adapter.java:76)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs2.lambda$analyzeApplication$1(FindBugs2.java:1100)</StackTrace>
+      <StackTrace>java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.CurrentThreadExecutorService.execute(CurrentThreadExecutorService.java:86)</StackTrace>
+      <StackTrace>java.base/java.util.concurrent.AbstractExecutorService.invokeAll(AbstractExecutorService.java:247)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs2.analyzeApplication(FindBugs2.java:1110)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs2.execute(FindBugs2.java:309)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs.runMain(FindBugs.java:390)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs2.main(FindBugs2.java:1223)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.LaunchAppropriateUI.launch(LaunchAppropriateUI.java:102)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.LaunchAppropriateUI.main(LaunchAppropriateUI.java:194)</StackTrace>
+    </Error>
+    <Error>
+      <ErrorMessage>Exception analyzing com.thesis.securitystudy.controller.HealthController using detector edu.umd.cs.findbugs.DetectorToDetector2Adapter</ErrorMessage>
+      <Exception>java.lang.IllegalArgumentException: Invalid class name java/util/Map&lt;Ljava/lang/String;Ljava/lang/String</Exception>
+      <StackTrace>edu.umd.cs.findbugs.classfile.ClassDescriptor.&lt;init&gt;(ClassDescriptor.java:59)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.classfile.DescriptorFactory.getClassDescriptor(DescriptorFactory.java:128)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.AnalysisCacheToRepositoryAdapter.loadClass(AnalysisCacheToRepositoryAdapter.java:90)</StackTrace>
+      <StackTrace>org.apache.bcel.Repository.lookupClass(Repository.java:180)</StackTrace>
+      <StackTrace>com.h3xstream.findsecbugs.spring.SignatureParserWithGeneric.typeToJavaClass(SignatureParserWithGeneric.java:75)</StackTrace>
+      <StackTrace>com.h3xstream.findsecbugs.spring.SignatureParserWithGeneric.getReturnClasses(SignatureParserWithGeneric.java:60)</StackTrace>
+      <StackTrace>com.h3xstream.findsecbugs.spring.SpringEntityLeakDetector.analyzeMethod(SpringEntityLeakDetector.java:112)</StackTrace>
+      <StackTrace>com.h3xstream.findsecbugs.spring.SpringEntityLeakDetector.visitClassContext(SpringEntityLeakDetector.java:69)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.DetectorToDetector2Adapter.visitClass(DetectorToDetector2Adapter.java:76)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs2.lambda$analyzeApplication$1(FindBugs2.java:1100)</StackTrace>
+      <StackTrace>java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.CurrentThreadExecutorService.execute(CurrentThreadExecutorService.java:86)</StackTrace>
+      <StackTrace>java.base/java.util.concurrent.AbstractExecutorService.invokeAll(AbstractExecutorService.java:247)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs2.analyzeApplication(FindBugs2.java:1110)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs2.execute(FindBugs2.java:309)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs.runMain(FindBugs.java:390)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs2.main(FindBugs2.java:1223)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.LaunchAppropriateUI.launch(LaunchAppropriateUI.java:102)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.LaunchAppropriateUI.main(LaunchAppropriateUI.java:194)</StackTrace>
+    </Error>
+    <Error>
+      <ErrorMessage>Exception analyzing com.thesis.securitystudy.controller.NoteController using detector edu.umd.cs.findbugs.DetectorToDetector2Adapter</ErrorMessage>
+      <Exception>java.lang.IllegalArgumentException: Invalid class name com/thesis/securitystudy/dto/ApiResponse&lt;Ljava/util/Map&lt;Ljava/lang/String;Ljava/lang/Object</Exception>
+      <StackTrace>edu.umd.cs.findbugs.classfile.ClassDescriptor.&lt;init&gt;(ClassDescriptor.java:59)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.classfile.DescriptorFactory.getClassDescriptor(DescriptorFactory.java:128)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.AnalysisCacheToRepositoryAdapter.loadClass(AnalysisCacheToRepositoryAdapter.java:90)</StackTrace>
+      <StackTrace>org.apache.bcel.Repository.lookupClass(Repository.java:180)</StackTrace>
+      <StackTrace>com.h3xstream.findsecbugs.spring.SignatureParserWithGeneric.typeToJavaClass(SignatureParserWithGeneric.java:75)</StackTrace>
+      <StackTrace>com.h3xstream.findsecbugs.spring.SignatureParserWithGeneric.getReturnClasses(SignatureParserWithGeneric.java:60)</StackTrace>
+      <StackTrace>com.h3xstream.findsecbugs.spring.SpringEntityLeakDetector.analyzeMethod(SpringEntityLeakDetector.java:112)</StackTrace>
+      <StackTrace>com.h3xstream.findsecbugs.spring.SpringEntityLeakDetector.visitClassContext(SpringEntityLeakDetector.java:69)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.DetectorToDetector2Adapter.visitClass(DetectorToDetector2Adapter.java:76)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs2.lambda$analyzeApplication$1(FindBugs2.java:1100)</StackTrace>
+      <StackTrace>java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.CurrentThreadExecutorService.execute(CurrentThreadExecutorService.java:86)</StackTrace>
+      <StackTrace>java.base/java.util.concurrent.AbstractExecutorService.invokeAll(AbstractExecutorService.java:247)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs2.analyzeApplication(FindBugs2.java:1110)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs2.execute(FindBugs2.java:309)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs.runMain(FindBugs.java:390)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs2.main(FindBugs2.java:1223)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.LaunchAppropriateUI.launch(LaunchAppropriateUI.java:102)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.LaunchAppropriateUI.main(LaunchAppropriateUI.java:194)</StackTrace>
+    </Error>
+    <MissingClass>apply</MissingClass>
+    <MissingClass>customize</MissingClass>
+    <MissingClass>get</MissingClass>
+    <MissingClass>makeConcatWithConstants</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Fri, 3 Apr 2026 15:10:25 +0000" total_classes="33" referenced_classes="260" total_bugs="7" total_size="776" num_packages="9" java_version="21.0.10" vm_version="21.0.10+7-LTS" cpu_seconds="14.94" clock_seconds="4.36" peak_mbytes="270.47" alloc_mbytes="3998.00" gc_seconds="0.07" priority_3="6" priority_1="1">
+    <FileStats path="com/thesis/securitystudy/SecurityStudyApplication.java" bugCount="0" size="6"/>
+    <FileStats path="com/thesis/securitystudy/config/DataInitializer.java" bugCount="0" size="23"/>
+    <FileStats path="com/thesis/securitystudy/config/JwtAuthenticationFilter.java" bugCount="0" size="21"/>
+    <FileStats path="com/thesis/securitystudy/config/SecurityConfig.java" bugCount="0" size="29"/>
+    <FileStats path="com/thesis/securitystudy/controller/AuthController.java" bugCount="0" size="12"/>
+    <FileStats path="com/thesis/securitystudy/controller/HealthController.java" bugCount="0" size="5"/>
+    <FileStats path="com/thesis/securitystudy/controller/NoteController.java" bugCount="0" size="22"/>
+    <FileStats path="com/thesis/securitystudy/controller/UserController.java" bugCount="0" size="8"/>
+    <FileStats path="com/thesis/securitystudy/dto/ApiResponse.java" bugCount="0" size="27"/>
+    <FileStats path="com/thesis/securitystudy/dto/AuthResponse.java" bugCount="0" size="16"/>
+    <FileStats path="com/thesis/securitystudy/dto/LoginRequest.java" bugCount="0" size="13"/>
+    <FileStats path="com/thesis/securitystudy/dto/NoteRequest.java" bugCount="0" size="25"/>
+    <FileStats path="com/thesis/securitystudy/dto/NoteResponse.java" bugCount="0" size="38"/>
+    <FileStats path="com/thesis/securitystudy/dto/RegisterRequest.java" bugCount="0" size="18"/>
+    <FileStats path="com/thesis/securitystudy/dto/UserResponse.java" bugCount="0" size="32"/>
+    <FileStats path="com/thesis/securitystudy/exception/GlobalExceptionHandler.java" bugCount="0" size="19"/>
+    <FileStats path="com/thesis/securitystudy/exception/ResourceNotFoundException.java" bugCount="0" size="4"/>
+    <FileStats path="com/thesis/securitystudy/model/AuditLog.java" bugCount="0" size="63"/>
+    <FileStats path="com/thesis/securitystudy/model/BaseEntity.java" bugCount="0" size="21"/>
+    <FileStats path="com/thesis/securitystudy/model/FileEntity.java" bugCount="0" size="33"/>
+    <FileStats path="com/thesis/securitystudy/model/Note.java" bugCount="0" size="41"/>
+    <FileStats path="com/thesis/securitystudy/model/Role.java" bugCount="0" size="14"/>
+    <FileStats path="com/thesis/securitystudy/model/User.java" bugCount="0" size="37"/>
+    <FileStats path="com/thesis/securitystudy/repository/AuditLogRepository.java" bugCount="0" size="5"/>
+    <FileStats path="com/thesis/securitystudy/repository/FileRepository.java" bugCount="0" size="3"/>
+    <FileStats path="com/thesis/securitystudy/repository/NoteRepository.java" bugCount="0" size="4"/>
+    <FileStats path="com/thesis/securitystudy/repository/UserRepository.java" bugCount="0" size="5"/>
+    <FileStats path="com/thesis/securitystudy/service/AuthService.java" bugCount="0" size="31"/>
+    <FileStats path="com/thesis/securitystudy/service/CustomUserDetailsService.java" bugCount="0" size="18"/>
+    <FileStats path="com/thesis/securitystudy/service/NoteService.java" bugCount="1" size="112" bugHash="cd0138875d09c78d594d0ab4a7f380b9"/>
+    <FileStats path="com/thesis/securitystudy/util/EncryptionUtil.java" bugCount="6" size="41" bugHash="90ea396c72bcc85722823f95988c7f3f"/>
+    <FileStats path="com/thesis/securitystudy/util/JwtUtil.java" bugCount="0" size="30"/>
+    <PackageStats package="com.thesis.securitystudy" total_bugs="0" total_types="1" total_size="6">
+      <ClassStats class="com.thesis.securitystudy.SecurityStudyApplication" sourceFile="SecurityStudyApplication.java" interface="false" size="6" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.thesis.securitystudy.config" total_bugs="0" total_types="3" total_size="73">
+      <ClassStats class="com.thesis.securitystudy.config.DataInitializer" sourceFile="DataInitializer.java" interface="false" size="23" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.config.JwtAuthenticationFilter" sourceFile="JwtAuthenticationFilter.java" interface="false" size="21" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.config.SecurityConfig" sourceFile="SecurityConfig.java" interface="false" size="29" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.thesis.securitystudy.controller" total_bugs="0" total_types="4" total_size="47">
+      <ClassStats class="com.thesis.securitystudy.controller.AuthController" sourceFile="AuthController.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.controller.HealthController" sourceFile="HealthController.java" interface="false" size="5" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.controller.NoteController" sourceFile="NoteController.java" interface="false" size="22" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.controller.UserController" sourceFile="UserController.java" interface="false" size="8" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.thesis.securitystudy.dto" total_bugs="0" total_types="7" total_size="169">
+      <ClassStats class="com.thesis.securitystudy.dto.ApiResponse" sourceFile="ApiResponse.java" interface="false" size="27" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.dto.AuthResponse" sourceFile="AuthResponse.java" interface="false" size="16" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.dto.LoginRequest" sourceFile="LoginRequest.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.dto.NoteRequest" sourceFile="NoteRequest.java" interface="false" size="25" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.dto.NoteResponse" sourceFile="NoteResponse.java" interface="false" size="38" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.dto.RegisterRequest" sourceFile="RegisterRequest.java" interface="false" size="18" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.dto.UserResponse" sourceFile="UserResponse.java" interface="false" size="32" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.thesis.securitystudy.exception" total_bugs="0" total_types="2" total_size="23">
+      <ClassStats class="com.thesis.securitystudy.exception.GlobalExceptionHandler" sourceFile="GlobalExceptionHandler.java" interface="false" size="19" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.exception.ResourceNotFoundException" sourceFile="ResourceNotFoundException.java" interface="false" size="4" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.thesis.securitystudy.model" total_bugs="0" total_types="7" total_size="209">
+      <ClassStats class="com.thesis.securitystudy.model.AuditLog" sourceFile="AuditLog.java" interface="false" size="51" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.model.AuditLog$AuditLevel" sourceFile="AuditLog.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.model.BaseEntity" sourceFile="BaseEntity.java" interface="false" size="21" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.model.FileEntity" sourceFile="FileEntity.java" interface="false" size="33" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.model.Note" sourceFile="Note.java" interface="false" size="41" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.model.Role" sourceFile="Role.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.model.User" sourceFile="User.java" interface="false" size="37" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.thesis.securitystudy.repository" total_bugs="0" total_types="4" total_size="17">
+      <ClassStats class="com.thesis.securitystudy.repository.AuditLogRepository" sourceFile="AuditLogRepository.java" interface="true" size="5" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.repository.FileRepository" sourceFile="FileRepository.java" interface="true" size="3" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.repository.NoteRepository" sourceFile="NoteRepository.java" interface="true" size="4" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.repository.UserRepository" sourceFile="UserRepository.java" interface="true" size="5" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.thesis.securitystudy.service" total_bugs="1" total_types="3" total_size="161" priority_3="1">
+      <ClassStats class="com.thesis.securitystudy.service.AuthService" sourceFile="AuthService.java" interface="false" size="31" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.service.CustomUserDetailsService" sourceFile="CustomUserDetailsService.java" interface="false" size="18" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.service.NoteService" sourceFile="NoteService.java" interface="false" size="112" bugs="1" priority_3="1"/>
+    </PackageStats>
+    <PackageStats package="com.thesis.securitystudy.util" total_bugs="6" total_types="2" total_size="71" priority_3="5" priority_1="1">
+      <ClassStats class="com.thesis.securitystudy.util.EncryptionUtil" sourceFile="EncryptionUtil.java" interface="false" size="41" bugs="6" priority_3="5" priority_1="1"/>
+      <ClassStats class="com.thesis.securitystudy.util.JwtUtil" sourceFile="JwtUtil.java" interface="false" size="30" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="624" invocations="1606" avgMicrosecondsPerInvocation="388" maxMicrosecondsPerInvocation="13117" standardDeviationMicrosecondsPerInvocation="866"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="321" invocations="1624" avgMicrosecondsPerInvocation="197" maxMicrosecondsPerInvocation="86430" standardDeviationMicrosecondsPerInvocation="2486"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="224" invocations="260" avgMicrosecondsPerInvocation="862" maxMicrosecondsPerInvocation="12822" standardDeviationMicrosecondsPerInvocation="2028"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="192" invocations="260" avgMicrosecondsPerInvocation="739" maxMicrosecondsPerInvocation="10206" standardDeviationMicrosecondsPerInvocation="1635"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="114" invocations="509" avgMicrosecondsPerInvocation="225" maxMicrosecondsPerInvocation="3455" standardDeviationMicrosecondsPerInvocation="337"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="87" invocations="441" avgMicrosecondsPerInvocation="197" maxMicrosecondsPerInvocation="13769" standardDeviationMicrosecondsPerInvocation="738"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="75" invocations="260" avgMicrosecondsPerInvocation="289" maxMicrosecondsPerInvocation="4915" standardDeviationMicrosecondsPerInvocation="637"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="73" invocations="193" avgMicrosecondsPerInvocation="379" maxMicrosecondsPerInvocation="25157" standardDeviationMicrosecondsPerInvocation="1851"/>
+      <ClassProfile name="com.h3xstream.findsecbugs.taintanalysis.TaintDataflowEngine" totalMilliseconds="73" invocations="191" avgMicrosecondsPerInvocation="382" maxMicrosecondsPerInvocation="16153" standardDeviationMicrosecondsPerInvocation="1266"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="60" invocations="260" avgMicrosecondsPerInvocation="232" maxMicrosecondsPerInvocation="4682" standardDeviationMicrosecondsPerInvocation="588"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="59" invocations="1546" avgMicrosecondsPerInvocation="38" maxMicrosecondsPerInvocation="1135" standardDeviationMicrosecondsPerInvocation="81"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="55" invocations="191" avgMicrosecondsPerInvocation="289" maxMicrosecondsPerInvocation="2988" standardDeviationMicrosecondsPerInvocation="442"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="52" invocations="191" avgMicrosecondsPerInvocation="275" maxMicrosecondsPerInvocation="3682" standardDeviationMicrosecondsPerInvocation="491"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="50" invocations="260" avgMicrosecondsPerInvocation="195" maxMicrosecondsPerInvocation="3326" standardDeviationMicrosecondsPerInvocation="411"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CalledMethods" totalMilliseconds="48" invocations="260" avgMicrosecondsPerInvocation="185" maxMicrosecondsPerInvocation="3400" standardDeviationMicrosecondsPerInvocation="429"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindReturnRef" totalMilliseconds="48" invocations="33" avgMicrosecondsPerInvocation="1455" maxMicrosecondsPerInvocation="24483" standardDeviationMicrosecondsPerInvocation="4122"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="46" invocations="204" avgMicrosecondsPerInvocation="228" maxMicrosecondsPerInvocation="8410" standardDeviationMicrosecondsPerInvocation="645"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="44" invocations="260" avgMicrosecondsPerInvocation="171" maxMicrosecondsPerInvocation="9160" standardDeviationMicrosecondsPerInvocation="644"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="44" invocations="193" avgMicrosecondsPerInvocation="229" maxMicrosecondsPerInvocation="7617" standardDeviationMicrosecondsPerInvocation="595"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="40" invocations="191" avgMicrosecondsPerInvocation="211" maxMicrosecondsPerInvocation="2874" standardDeviationMicrosecondsPerInvocation="366"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="40" invocations="204" avgMicrosecondsPerInvocation="198" maxMicrosecondsPerInvocation="22168" standardDeviationMicrosecondsPerInvocation="1549"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildStringPassthruGraph" totalMilliseconds="35" invocations="260" avgMicrosecondsPerInvocation="136" maxMicrosecondsPerInvocation="2414" standardDeviationMicrosecondsPerInvocation="341"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ReflectiveClasses" totalMilliseconds="34" invocations="260" avgMicrosecondsPerInvocation="132" maxMicrosecondsPerInvocation="2269" standardDeviationMicrosecondsPerInvocation="310"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="28" invocations="96" avgMicrosecondsPerInvocation="298" maxMicrosecondsPerInvocation="2000" standardDeviationMicrosecondsPerInvocation="396"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.EqualsOperandShouldHaveClassCompatibleWithThis" totalMilliseconds="27" invocations="260" avgMicrosecondsPerInvocation="106" maxMicrosecondsPerInvocation="2769" standardDeviationMicrosecondsPerInvocation="270"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ConstructorThrow" totalMilliseconds="26" invocations="33" avgMicrosecondsPerInvocation="808" maxMicrosecondsPerInvocation="4095" standardDeviationMicrosecondsPerInvocation="908"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ExplicitSerialization" totalMilliseconds="21" invocations="260" avgMicrosecondsPerInvocation="82" maxMicrosecondsPerInvocation="8626" standardDeviationMicrosecondsPerInvocation="637"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ResourceInMultipleThreadsDetector" totalMilliseconds="21" invocations="33" avgMicrosecondsPerInvocation="651" maxMicrosecondsPerInvocation="2889" standardDeviationMicrosecondsPerInvocation="652"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.UnreadFields" totalMilliseconds="19" invocations="33" avgMicrosecondsPerInvocation="577" maxMicrosecondsPerInvocation="3850" standardDeviationMicrosecondsPerInvocation="707"/>
+      <ClassProfile name="edu.umd.cs.findbugs.DetectorToDetector2Adapter" totalMilliseconds="18" invocations="9228" avgMicrosecondsPerInvocation="2" maxMicrosecondsPerInvocation="1158" standardDeviationMicrosecondsPerInvocation="12"/>
+      <ClassProfile name="com.h3xstream.findsecbugs.ImproperHandlingUnicodeDetector" totalMilliseconds="17" invocations="33" avgMicrosecondsPerInvocation="524" maxMicrosecondsPerInvocation="12937" standardDeviationMicrosecondsPerInvocation="2196"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.impl.ZipCodeBaseFactory" totalMilliseconds="15" invocations="110" avgMicrosecondsPerInvocation="143" maxMicrosecondsPerInvocation="2130" standardDeviationMicrosecondsPerInvocation="209"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CheckRelaxingNullnessAnnotation" totalMilliseconds="15" invocations="33" avgMicrosecondsPerInvocation="467" maxMicrosecondsPerInvocation="4827" standardDeviationMicrosecondsPerInvocation="879"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.TypeQualifierNullnessAnnotationDatabase" totalMilliseconds="15" invocations="1863" avgMicrosecondsPerInvocation="8" maxMicrosecondsPerInvocation="2316" standardDeviationMicrosecondsPerInvocation="58"/>
+      <ClassProfile name="com.h3xstream.findsecbugs.password.ConstantPasswordDetector" totalMilliseconds="15" invocations="33" avgMicrosecondsPerInvocation="461" maxMicrosecondsPerInvocation="5174" standardDeviationMicrosecondsPerInvocation="886"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindInconsistentSync2" totalMilliseconds="14" invocations="33" avgMicrosecondsPerInvocation="446" maxMicrosecondsPerInvocation="2294" standardDeviationMicrosecondsPerInvocation="453"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.DumbMethods" totalMilliseconds="13" invocations="33" avgMicrosecondsPerInvocation="416" maxMicrosecondsPerInvocation="2024" standardDeviationMicrosecondsPerInvocation="476"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.asm.ClassReaderAnalysisEngine" totalMilliseconds="13" invocations="1578" avgMicrosecondsPerInvocation="8" maxMicrosecondsPerInvocation="2507" standardDeviationMicrosecondsPerInvocation="63"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteSuppressedWarnings" totalMilliseconds="13" invocations="260" avgMicrosecondsPerInvocation="51" maxMicrosecondsPerInvocation="1178" standardDeviationMicrosecondsPerInvocation="96"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ConstantDataflowFactory" totalMilliseconds="12" invocations="191" avgMicrosecondsPerInvocation="67" maxMicrosecondsPerInvocation="1330" standardDeviationMicrosecondsPerInvocation="124"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.LoadOfKnownNullValue" totalMilliseconds="12" invocations="33" avgMicrosecondsPerInvocation="386" maxMicrosecondsPerInvocation="2485" standardDeviationMicrosecondsPerInvocation="494"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindOpenStream" totalMilliseconds="12" invocations="33" avgMicrosecondsPerInvocation="385" maxMicrosecondsPerInvocation="5612" standardDeviationMicrosecondsPerInvocation="1151"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>
