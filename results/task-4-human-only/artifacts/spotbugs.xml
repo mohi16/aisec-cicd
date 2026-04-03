@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.9.3" sequence="0" timestamp="1775237190490" analysisTimestamp="1775237202408" release="">
+  <Project projectName="">
+    <Jar>target/classes</Jar>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/boot/spring-boot-starter-web/3.4.1/spring-boot-starter-web-3.4.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/boot/spring-boot-starter/3.4.1/spring-boot-starter-3.4.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/boot/spring-boot/3.4.1/spring-boot-3.4.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/3.4.1/spring-boot-autoconfigure-3.4.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/boot/spring-boot-starter-logging/3.4.1/spring-boot-starter-logging-3.4.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/ch/qos/logback/logback-classic/1.5.12/logback-classic-1.5.12.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/ch/qos/logback/logback-core/1.5.12/logback-core-1.5.12.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.24.3/log4j-to-slf4j-2.24.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/apache/logging/log4j/log4j-api/2.24.3/log4j-api-2.24.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/slf4j/jul-to-slf4j/2.0.16/jul-to-slf4j-2.0.16.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/yaml/snakeyaml/2.3/snakeyaml-2.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/boot/spring-boot-starter-json/3.4.1/spring-boot-starter-json-3.4.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.18.2/jackson-datatype-jdk8-2.18.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.18.2/jackson-datatype-jsr310-2.18.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.18.2/jackson-module-parameter-names-2.18.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/3.4.1/spring-boot-starter-tomcat-3.4.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.34/tomcat-embed-core-10.1.34.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/10.1.34/tomcat-embed-websocket-10.1.34.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/spring-web/6.2.1/spring-web-6.2.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/spring-beans/6.2.1/spring-beans-6.2.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/spring-webmvc/6.2.1/spring-webmvc-6.2.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/spring-context/6.2.1/spring-context-6.2.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/spring-expression/6.2.1/spring-expression-6.2.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/boot/spring-boot-starter-security/3.4.1/spring-boot-starter-security-3.4.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/spring-aop/6.2.1/spring-aop-6.2.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/security/spring-security-config/6.4.2/spring-security-config-6.4.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/security/spring-security-web/6.4.2/spring-security-web-6.4.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/boot/spring-boot-starter-data-jpa/3.4.1/spring-boot-starter-data-jpa-3.4.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/boot/spring-boot-starter-jdbc/3.4.1/spring-boot-starter-jdbc-3.4.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/com/zaxxer/HikariCP/5.1.0/HikariCP-5.1.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/spring-jdbc/6.2.1/spring-jdbc-6.2.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/hibernate/orm/hibernate-core/6.6.4.Final/hibernate-core-6.6.4.Final.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/jakarta/transaction/jakarta.transaction-api/2.0.1/jakarta.transaction-api-2.0.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/jboss/logging/jboss-logging/3.6.1.Final/jboss-logging-3.6.1.Final.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/hibernate/common/hibernate-commons-annotations/7.0.3.Final/hibernate-commons-annotations-7.0.3.Final.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/io/smallrye/jandex/3.2.0/jandex-3.2.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/com/fasterxml/classmate/1.7.0/classmate-1.7.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/net/bytebuddy/byte-buddy/1.15.11/byte-buddy-1.15.11.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/glassfish/jaxb/jaxb-runtime/4.0.5/jaxb-runtime-4.0.5.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/glassfish/jaxb/jaxb-core/4.0.5/jaxb-core-4.0.5.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/eclipse/angus/angus-activation/2.0.2/angus-activation-2.0.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/glassfish/jaxb/txw2/4.0.5/txw2-4.0.5.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/com/sun/istack/istack-commons-runtime/4.1.2/istack-commons-runtime-4.1.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/jakarta/inject/jakarta.inject-api/2.0.1/jakarta.inject-api-2.0.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/antlr/antlr4-runtime/4.13.0/antlr4-runtime-4.13.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/data/spring-data-jpa/3.4.1/spring-data-jpa-3.4.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/data/spring-data-commons/3.4.1/spring-data-commons-3.4.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/spring-orm/6.2.1/spring-orm-6.2.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/spring-tx/6.2.1/spring-tx-6.2.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/slf4j/slf4j-api/2.0.16/slf4j-api-2.0.16.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/spring-aspects/6.2.1/spring-aspects-6.2.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/aspectj/aspectjweaver/1.9.22.1/aspectjweaver-1.9.22.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/boot/spring-boot-starter-validation/3.4.1/spring-boot-starter-validation-3.4.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/10.1.34/tomcat-embed-el-10.1.34.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/hibernate/validator/hibernate-validator/8.0.2.Final/hibernate-validator-8.0.2.Final.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/jakarta/validation/jakarta.validation-api/3.0.2/jakarta.validation-api-3.0.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/boot/spring-boot-starter-actuator/3.4.1/spring-boot-starter-actuator-3.4.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/boot/spring-boot-actuator-autoconfigure/3.4.1/spring-boot-actuator-autoconfigure-3.4.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/boot/spring-boot-actuator/3.4.1/spring-boot-actuator-3.4.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/io/micrometer/micrometer-observation/1.14.2/micrometer-observation-1.14.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/io/micrometer/micrometer-commons/1.14.2/micrometer-commons-1.14.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/io/micrometer/micrometer-jakarta9/1.14.2/micrometer-jakarta9-1.14.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/io/micrometer/micrometer-core/1.14.2/micrometer-core-1.14.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/hdrhistogram/HdrHistogram/2.2.2/HdrHistogram-2.2.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/latencyutils/LatencyUtils/2.0.3/LatencyUtils-2.0.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/io/jsonwebtoken/jjwt-api/0.12.6/jjwt-api-0.12.6.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/io/jsonwebtoken/jjwt-impl/0.12.6/jjwt-impl-0.12.6.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/io/jsonwebtoken/jjwt-jackson/0.12.6/jjwt-jackson-0.12.6.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.18.2/jackson-databind-2.18.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.18.2/jackson-annotations-2.18.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.18.2/jackson-core-2.18.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/com/h2database/h2/2.3.232/h2-2.3.232.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/postgresql/postgresql/42.7.4/postgresql-42.7.4.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/checkerframework/checker-qual/3.42.0/checker-qual-3.42.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/boot/spring-boot-starter-test/3.4.1/spring-boot-starter-test-3.4.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/boot/spring-boot-test/3.4.1/spring-boot-test-3.4.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/boot/spring-boot-test-autoconfigure/3.4.1/spring-boot-test-autoconfigure-3.4.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/com/jayway/jsonpath/json-path/2.9.0/json-path-2.9.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/4.0.2/jakarta.xml.bind-api-4.0.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/jakarta/activation/jakarta.activation-api/2.1.3/jakarta.activation-api-2.1.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/net/minidev/json-smart/2.5.1/json-smart-2.5.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/net/minidev/accessors-smart/2.5.1/accessors-smart-2.5.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/ow2/asm/asm/9.6/asm-9.6.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/assertj/assertj-core/3.26.3/assertj-core-3.26.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/awaitility/awaitility/4.2.2/awaitility-4.2.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/junit/jupiter/junit-jupiter/5.11.4/junit-jupiter-5.11.4.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.11.4/junit-jupiter-api-5.11.4.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/junit/platform/junit-platform-commons/1.11.4/junit-platform-commons-1.11.4.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.11.4/junit-jupiter-params-5.11.4.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.11.4/junit-jupiter-engine-5.11.4.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/junit/platform/junit-platform-engine/1.11.4/junit-platform-engine-1.11.4.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/mockito/mockito-core/5.14.2/mockito-core-5.14.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/net/bytebuddy/byte-buddy-agent/1.15.11/byte-buddy-agent-1.15.11.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/mockito/mockito-junit-jupiter/5.14.2/mockito-junit-jupiter-5.14.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/skyscreamer/jsonassert/1.5.3/jsonassert-1.5.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/spring-core/6.2.1/spring-core-6.2.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/spring-jcl/6.2.1/spring-jcl-6.2.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/spring-test/6.2.1/spring-test-6.2.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/xmlunit/xmlunit-core/2.10.0/xmlunit-core-2.10.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/security/spring-security-test/6.4.2/spring-security-test-6.4.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/security/spring-security-core/6.4.2/spring-security-core-6.4.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/runner/.m2/repository/org/springframework/security/spring-security-crypto/6.4.2/spring-security-crypto-6.4.2.jar</AuxClasspathEntry>
+    <Plugin id="com.h3xstream.findsecbugs" enabled="true"/>
+  </Project>
+  <BugInstance type="DM_CONVERT_CASE" priority="3" rank="20" abbrev="Dm" category="I18N" instanceHash="f12d430ad3c32b808727c8f130f6e773" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Consider using Locale parameterized version of invoked method</ShortMessage>
+    <LongMessage>Use of non-localized String.toUpperCase() or String.toLowerCase() in com.thesis.securitystudy.service.SearchService.lambda$sortResults$0(Note)</LongMessage>
+    <Class classname="com.thesis.securitystudy.service.SearchService" primary="true" classAnnotationNames="org.springframework.stereotype.Service">
+      <SourceLine classname="com.thesis.securitystudy.service.SearchService" start="16" end="59" sourcefile="SearchService.java" sourcepath="com/thesis/securitystudy/service/SearchService.java">
+        <Message>At SearchService.java:[lines 16-59]</Message>
+      </SourceLine>
+      <Message>In class com.thesis.securitystudy.service.SearchService</Message>
+    </Class>
+    <Method classname="com.thesis.securitystudy.service.SearchService" name="lambda$sortResults$0" signature="(Lcom/thesis/securitystudy/model/Note;)Ljava/lang/String;" isStatic="true" primary="true" classAnnotationNames="org.springframework.stereotype.Service">
+      <SourceLine classname="com.thesis.securitystudy.service.SearchService" start="47" end="47" startBytecode="0" endBytecode="74" sourcefile="SearchService.java" sourcepath="com/thesis/securitystudy/service/SearchService.java"/>
+      <Message>In method com.thesis.securitystudy.service.SearchService.lambda$sortResults$0(Note)</Message>
+    </Method>
+    <SourceLine classname="com.thesis.securitystudy.service.SearchService" primary="true" start="47" end="47" startBytecode="16" endBytecode="16" sourcefile="SearchService.java" sourcepath="com/thesis/securitystudy/service/SearchService.java">
+      <Message>At SearchService.java:[line 47]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DM_CONVERT_CASE" priority="3" rank="20" abbrev="Dm" category="I18N" instanceHash="569065d3703ee90e0d8e69b38ddc1ae5" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Consider using Locale parameterized version of invoked method</ShortMessage>
+    <LongMessage>Use of non-localized String.toUpperCase() or String.toLowerCase() in com.thesis.securitystudy.service.SearchService.sortResults(List, String)</LongMessage>
+    <Class classname="com.thesis.securitystudy.service.SearchService" primary="true" classAnnotationNames="org.springframework.stereotype.Service">
+      <SourceLine classname="com.thesis.securitystudy.service.SearchService" start="16" end="59" sourcefile="SearchService.java" sourcepath="com/thesis/securitystudy/service/SearchService.java">
+        <Message>At SearchService.java:[lines 16-59]</Message>
+      </SourceLine>
+      <Message>In class com.thesis.securitystudy.service.SearchService</Message>
+    </Class>
+    <Method classname="com.thesis.securitystudy.service.SearchService" name="sortResults" signature="(Ljava/util/List;Ljava/lang/String;)V" isStatic="false" primary="true" classAnnotationNames="org.springframework.stereotype.Service">
+      <SourceLine classname="com.thesis.securitystudy.service.SearchService" start="43" end="59" startBytecode="0" endBytecode="376" sourcefile="SearchService.java" sourcepath="com/thesis/securitystudy/service/SearchService.java"/>
+      <Message>In method com.thesis.securitystudy.service.SearchService.sortResults(List, String)</Message>
+    </Method>
+    <SourceLine classname="com.thesis.securitystudy.service.SearchService" primary="true" start="45" end="45" startBytecode="15" endBytecode="15" sourcefile="SearchService.java" sourcepath="com/thesis/securitystudy/service/SearchService.java">
+      <Message>At SearchService.java:[line 45]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="IMPROPER_UNICODE" priority="3" rank="15" abbrev="SECUNI" category="SECURITY" instanceHash="44c9f0a2cf28e0b9e351e908468c20e8" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="176">
+    <ShortMessage>Improper handling of Unicode transformations</ShortMessage>
+    <LongMessage>Improper handling of Unicode transformations such as case mapping and normalization.</LongMessage>
+    <Class classname="com.thesis.securitystudy.service.SearchService" primary="true" classAnnotationNames="org.springframework.stereotype.Service">
+      <SourceLine classname="com.thesis.securitystudy.service.SearchService" start="16" end="59" sourcefile="SearchService.java" sourcepath="com/thesis/securitystudy/service/SearchService.java">
+        <Message>At SearchService.java:[lines 16-59]</Message>
+      </SourceLine>
+      <Message>In class com.thesis.securitystudy.service.SearchService</Message>
+    </Class>
+    <Method classname="com.thesis.securitystudy.service.SearchService" name="sortResults" signature="(Ljava/util/List;Ljava/lang/String;)V" isStatic="false" primary="true" classAnnotationNames="org.springframework.stereotype.Service">
+      <SourceLine classname="com.thesis.securitystudy.service.SearchService" start="43" end="59" startBytecode="0" endBytecode="376" sourcefile="SearchService.java" sourcepath="com/thesis/securitystudy/service/SearchService.java"/>
+      <Message>In method com.thesis.securitystudy.service.SearchService.sortResults(List, String)</Message>
+    </Method>
+    <SourceLine classname="com.thesis.securitystudy.service.SearchService" primary="true" start="45" end="45" startBytecode="15" endBytecode="15" sourcefile="SearchService.java" sourcepath="com/thesis/securitystudy/service/SearchService.java">
+      <Message>At SearchService.java:[line 45]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="SECURITY">
+    <Description>Security</Description>
+  </BugCategory>
+  <BugCategory category="I18N">
+    <Description>Internationalization</Description>
+  </BugCategory>
+  <BugPattern type="IMPROPER_UNICODE" abbrev="SECUNI" category="SECURITY" cweid="176">
+    <ShortDescription>Improper handling of Unicode transformations</ShortDescription>
+    <Details><![CDATA[
+            
+<p>
+Unexpected behavior in unicode transformations can sometimes lead to bugs, some of them affecting software security.
+A code that applies the uppercase transformation to two strings could mistakenly interpret both strings as being equal.
+</p>
+
+<p>
+In the code bellow, the string <code>"ADM\u0131N"</code> would cause the condition to be true.
+When the uppercase transformation is applied, the character `\u0131` will becomme '\u0049' (I).
+It can be an issue if the developer only one user to be <code>"ADMIN"</code>.<br/>
+<pre>
+if(username.toUpperCase().equals("ADMIN")) {
+  //...
+}
+</pre>
+</p>
+
+<p>
+Similar characters transformations can occurs with normalization functions.
+In the code bellow, the string <code>"BAC\u212AUP"</code> would cause the condition to be true.
+When the normalization transformation is applied, the character `\u212A` will becomme '\u0048' (K).<br/>
+<pre>
+if(Normalizer.normalize(input, Normalizer.Form.NFC).equals("BACKUP")) {
+  //...
+}
+</pre>
+</p>
+
+<p>
+<b>References</b><br/>
+<a href="https://www.gosecure.net/blog/2020/08/04/unicode-for-security-professionals/">Unicode for Security Professionals</a><br/>
+<a href="http://websec.github.io/unicode-security-guide/character-transformations/">Unicode Security Guide: Character Transformations</a><br/>
+<a href="https://cwe.mitre.org/data/definitions/176.html">CWE-176: Improper Handling of Unicode Encoding</a><br/>
+<a href="http://unicode.org/reports/tr36/">Unicode: Unicode Security Considerations</a><br/>
+</p>
+
+            
+        ]]></Details>
+  </BugPattern>
+  <BugPattern type="DM_CONVERT_CASE" abbrev="Dm" category="I18N">
+    <ShortDescription>Consider using Locale parameterized version of invoked method</ShortDescription>
+    <Details><![CDATA[
+
+  <p> A String is being converted to upper or lowercase, using the platform's default encoding. This may
+      result in improper conversions when used with international characters. Use the </p>
+      <ul>
+    <li>String.toUpperCase( Locale l )</li>
+    <li>String.toLowerCase( Locale l )</li>
+    </ul>
+      <p>versions instead.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="SECUNI">
+    <Description>Improper handling of Unicode transformations</Description>
+  </BugCode>
+  <BugCode abbrev="Dm">
+    <Description>Dubious method used</Description>
+  </BugCode>
+  <Errors errors="2" missingClasses="4">
+    <Error>
+      <ErrorMessage>Exception analyzing com.thesis.securitystudy.controller.UserController using detector edu.umd.cs.findbugs.DetectorToDetector2Adapter</ErrorMessage>
+      <Exception>java.lang.IllegalArgumentException: Invalid class name com/thesis/securitystudy/dto/ApiResponse&lt;Ljava/util/Map&lt;Ljava/lang/String;Ljava/lang/Object</Exception>
+      <StackTrace>edu.umd.cs.findbugs.classfile.ClassDescriptor.&lt;init&gt;(ClassDescriptor.java:59)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.classfile.DescriptorFactory.getClassDescriptor(DescriptorFactory.java:128)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.AnalysisCacheToRepositoryAdapter.loadClass(AnalysisCacheToRepositoryAdapter.java:90)</StackTrace>
+      <StackTrace>org.apache.bcel.Repository.lookupClass(Repository.java:180)</StackTrace>
+      <StackTrace>com.h3xstream.findsecbugs.spring.SignatureParserWithGeneric.typeToJavaClass(SignatureParserWithGeneric.java:75)</StackTrace>
+      <StackTrace>com.h3xstream.findsecbugs.spring.SignatureParserWithGeneric.getReturnClasses(SignatureParserWithGeneric.java:60)</StackTrace>
+      <StackTrace>com.h3xstream.findsecbugs.spring.SpringEntityLeakDetector.analyzeMethod(SpringEntityLeakDetector.java:112)</StackTrace>
+      <StackTrace>com.h3xstream.findsecbugs.spring.SpringEntityLeakDetector.visitClassContext(SpringEntityLeakDetector.java:69)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.DetectorToDetector2Adapter.visitClass(DetectorToDetector2Adapter.java:76)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs2.lambda$analyzeApplication$1(FindBugs2.java:1100)</StackTrace>
+      <StackTrace>java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.CurrentThreadExecutorService.execute(CurrentThreadExecutorService.java:86)</StackTrace>
+      <StackTrace>java.base/java.util.concurrent.AbstractExecutorService.invokeAll(AbstractExecutorService.java:247)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs2.analyzeApplication(FindBugs2.java:1110)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs2.execute(FindBugs2.java:309)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs.runMain(FindBugs.java:390)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs2.main(FindBugs2.java:1223)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.LaunchAppropriateUI.launch(LaunchAppropriateUI.java:102)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.LaunchAppropriateUI.main(LaunchAppropriateUI.java:194)</StackTrace>
+    </Error>
+    <Error>
+      <ErrorMessage>Exception analyzing com.thesis.securitystudy.controller.HealthController using detector edu.umd.cs.findbugs.DetectorToDetector2Adapter</ErrorMessage>
+      <Exception>java.lang.IllegalArgumentException: Invalid class name java/util/Map&lt;Ljava/lang/String;Ljava/lang/String</Exception>
+      <StackTrace>edu.umd.cs.findbugs.classfile.ClassDescriptor.&lt;init&gt;(ClassDescriptor.java:59)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.classfile.DescriptorFactory.getClassDescriptor(DescriptorFactory.java:128)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.AnalysisCacheToRepositoryAdapter.loadClass(AnalysisCacheToRepositoryAdapter.java:90)</StackTrace>
+      <StackTrace>org.apache.bcel.Repository.lookupClass(Repository.java:180)</StackTrace>
+      <StackTrace>com.h3xstream.findsecbugs.spring.SignatureParserWithGeneric.typeToJavaClass(SignatureParserWithGeneric.java:75)</StackTrace>
+      <StackTrace>com.h3xstream.findsecbugs.spring.SignatureParserWithGeneric.getReturnClasses(SignatureParserWithGeneric.java:60)</StackTrace>
+      <StackTrace>com.h3xstream.findsecbugs.spring.SpringEntityLeakDetector.analyzeMethod(SpringEntityLeakDetector.java:112)</StackTrace>
+      <StackTrace>com.h3xstream.findsecbugs.spring.SpringEntityLeakDetector.visitClassContext(SpringEntityLeakDetector.java:69)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.DetectorToDetector2Adapter.visitClass(DetectorToDetector2Adapter.java:76)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs2.lambda$analyzeApplication$1(FindBugs2.java:1100)</StackTrace>
+      <StackTrace>java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.CurrentThreadExecutorService.execute(CurrentThreadExecutorService.java:86)</StackTrace>
+      <StackTrace>java.base/java.util.concurrent.AbstractExecutorService.invokeAll(AbstractExecutorService.java:247)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs2.analyzeApplication(FindBugs2.java:1110)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs2.execute(FindBugs2.java:309)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs.runMain(FindBugs.java:390)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.FindBugs2.main(FindBugs2.java:1223)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.LaunchAppropriateUI.launch(LaunchAppropriateUI.java:102)</StackTrace>
+      <StackTrace>edu.umd.cs.findbugs.LaunchAppropriateUI.main(LaunchAppropriateUI.java:194)</StackTrace>
+    </Error>
+    <MissingClass>apply</MissingClass>
+    <MissingClass>customize</MissingClass>
+    <MissingClass>get</MissingClass>
+    <MissingClass>makeConcatWithConstants</MissingClass>
+  </Errors>
+  <FindBugsSummary timestamp="Fri, 3 Apr 2026 17:26:30 +0000" total_classes="33" referenced_classes="246" total_bugs="3" total_size="688" num_packages="9" java_version="21.0.10" vm_version="21.0.10+7-LTS" cpu_seconds="13.23" clock_seconds="4.17" peak_mbytes="265.21" alloc_mbytes="3998.00" gc_seconds="0.06" priority_3="3">
+    <FileStats path="com/thesis/securitystudy/SecurityStudyApplication.java" bugCount="0" size="6"/>
+    <FileStats path="com/thesis/securitystudy/config/DataInitializer.java" bugCount="0" size="23"/>
+    <FileStats path="com/thesis/securitystudy/config/JwtAuthenticationFilter.java" bugCount="0" size="21"/>
+    <FileStats path="com/thesis/securitystudy/config/SecurityConfig.java" bugCount="0" size="29"/>
+    <FileStats path="com/thesis/securitystudy/controller/AuthController.java" bugCount="0" size="12"/>
+    <FileStats path="com/thesis/securitystudy/controller/HealthController.java" bugCount="0" size="5"/>
+    <FileStats path="com/thesis/securitystudy/controller/SearchController.java" bugCount="0" size="21"/>
+    <FileStats path="com/thesis/securitystudy/controller/UserController.java" bugCount="0" size="8"/>
+    <FileStats path="com/thesis/securitystudy/dto/ApiResponse.java" bugCount="0" size="27"/>
+    <FileStats path="com/thesis/securitystudy/dto/AuthResponse.java" bugCount="0" size="16"/>
+    <FileStats path="com/thesis/securitystudy/dto/LoginRequest.java" bugCount="0" size="13"/>
+    <FileStats path="com/thesis/securitystudy/dto/NoteRequest.java" bugCount="0" size="25"/>
+    <FileStats path="com/thesis/securitystudy/dto/NoteResponse.java" bugCount="0" size="38"/>
+    <FileStats path="com/thesis/securitystudy/dto/RegisterRequest.java" bugCount="0" size="18"/>
+    <FileStats path="com/thesis/securitystudy/dto/SearchResponse.java" bugCount="0" size="35"/>
+    <FileStats path="com/thesis/securitystudy/dto/UserResponse.java" bugCount="0" size="32"/>
+    <FileStats path="com/thesis/securitystudy/exception/GlobalExceptionHandler.java" bugCount="0" size="19"/>
+    <FileStats path="com/thesis/securitystudy/exception/ResourceNotFoundException.java" bugCount="0" size="4"/>
+    <FileStats path="com/thesis/securitystudy/model/AuditLog.java" bugCount="0" size="63"/>
+    <FileStats path="com/thesis/securitystudy/model/BaseEntity.java" bugCount="0" size="21"/>
+    <FileStats path="com/thesis/securitystudy/model/FileEntity.java" bugCount="0" size="33"/>
+    <FileStats path="com/thesis/securitystudy/model/Note.java" bugCount="0" size="41"/>
+    <FileStats path="com/thesis/securitystudy/model/Role.java" bugCount="0" size="14"/>
+    <FileStats path="com/thesis/securitystudy/model/User.java" bugCount="0" size="37"/>
+    <FileStats path="com/thesis/securitystudy/repository/AuditLogRepository.java" bugCount="0" size="5"/>
+    <FileStats path="com/thesis/securitystudy/repository/FileRepository.java" bugCount="0" size="3"/>
+    <FileStats path="com/thesis/securitystudy/repository/NoteRepository.java" bugCount="0" size="6"/>
+    <FileStats path="com/thesis/securitystudy/repository/UserRepository.java" bugCount="0" size="5"/>
+    <FileStats path="com/thesis/securitystudy/service/AuthService.java" bugCount="0" size="31"/>
+    <FileStats path="com/thesis/securitystudy/service/CustomUserDetailsService.java" bugCount="0" size="18"/>
+    <FileStats path="com/thesis/securitystudy/service/SearchService.java" bugCount="3" size="29" bugHash="8805afaebd78907f854eef846256c468"/>
+    <FileStats path="com/thesis/securitystudy/util/JwtUtil.java" bugCount="0" size="30"/>
+    <PackageStats package="com.thesis.securitystudy" total_bugs="0" total_types="1" total_size="6">
+      <ClassStats class="com.thesis.securitystudy.SecurityStudyApplication" sourceFile="SecurityStudyApplication.java" interface="false" size="6" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.thesis.securitystudy.config" total_bugs="0" total_types="3" total_size="73">
+      <ClassStats class="com.thesis.securitystudy.config.DataInitializer" sourceFile="DataInitializer.java" interface="false" size="23" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.config.JwtAuthenticationFilter" sourceFile="JwtAuthenticationFilter.java" interface="false" size="21" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.config.SecurityConfig" sourceFile="SecurityConfig.java" interface="false" size="29" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.thesis.securitystudy.controller" total_bugs="0" total_types="4" total_size="46">
+      <ClassStats class="com.thesis.securitystudy.controller.AuthController" sourceFile="AuthController.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.controller.HealthController" sourceFile="HealthController.java" interface="false" size="5" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.controller.SearchController" sourceFile="SearchController.java" interface="false" size="21" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.controller.UserController" sourceFile="UserController.java" interface="false" size="8" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.thesis.securitystudy.dto" total_bugs="0" total_types="8" total_size="204">
+      <ClassStats class="com.thesis.securitystudy.dto.ApiResponse" sourceFile="ApiResponse.java" interface="false" size="27" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.dto.AuthResponse" sourceFile="AuthResponse.java" interface="false" size="16" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.dto.LoginRequest" sourceFile="LoginRequest.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.dto.NoteRequest" sourceFile="NoteRequest.java" interface="false" size="25" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.dto.NoteResponse" sourceFile="NoteResponse.java" interface="false" size="38" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.dto.RegisterRequest" sourceFile="RegisterRequest.java" interface="false" size="18" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.dto.SearchResponse" sourceFile="SearchResponse.java" interface="false" size="35" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.dto.UserResponse" sourceFile="UserResponse.java" interface="false" size="32" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.thesis.securitystudy.exception" total_bugs="0" total_types="2" total_size="23">
+      <ClassStats class="com.thesis.securitystudy.exception.GlobalExceptionHandler" sourceFile="GlobalExceptionHandler.java" interface="false" size="19" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.exception.ResourceNotFoundException" sourceFile="ResourceNotFoundException.java" interface="false" size="4" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.thesis.securitystudy.model" total_bugs="0" total_types="7" total_size="209">
+      <ClassStats class="com.thesis.securitystudy.model.AuditLog" sourceFile="AuditLog.java" interface="false" size="51" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.model.AuditLog$AuditLevel" sourceFile="AuditLog.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.model.BaseEntity" sourceFile="BaseEntity.java" interface="false" size="21" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.model.FileEntity" sourceFile="FileEntity.java" interface="false" size="33" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.model.Note" sourceFile="Note.java" interface="false" size="41" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.model.Role" sourceFile="Role.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.model.User" sourceFile="User.java" interface="false" size="37" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.thesis.securitystudy.repository" total_bugs="0" total_types="4" total_size="19">
+      <ClassStats class="com.thesis.securitystudy.repository.AuditLogRepository" sourceFile="AuditLogRepository.java" interface="true" size="5" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.repository.FileRepository" sourceFile="FileRepository.java" interface="true" size="3" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.repository.NoteRepository" sourceFile="NoteRepository.java" interface="true" size="6" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.repository.UserRepository" sourceFile="UserRepository.java" interface="true" size="5" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.thesis.securitystudy.service" total_bugs="3" total_types="3" total_size="78" priority_3="3">
+      <ClassStats class="com.thesis.securitystudy.service.AuthService" sourceFile="AuthService.java" interface="false" size="31" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.service.CustomUserDetailsService" sourceFile="CustomUserDetailsService.java" interface="false" size="18" bugs="0"/>
+      <ClassStats class="com.thesis.securitystudy.service.SearchService" sourceFile="SearchService.java" interface="false" size="29" bugs="3" priority_3="3"/>
+    </PackageStats>
+    <PackageStats package="com.thesis.securitystudy.util" total_bugs="0" total_types="1" total_size="30">
+      <ClassStats class="com.thesis.securitystudy.util.JwtUtil" sourceFile="JwtUtil.java" interface="false" size="30" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="603" invocations="1519" avgMicrosecondsPerInvocation="397" maxMicrosecondsPerInvocation="11802" standardDeviationMicrosecondsPerInvocation="894"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="572" invocations="1535" avgMicrosecondsPerInvocation="373" maxMicrosecondsPerInvocation="240181" standardDeviationMicrosecondsPerInvocation="7703"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="185" invocations="246" avgMicrosecondsPerInvocation="756" maxMicrosecondsPerInvocation="11587" standardDeviationMicrosecondsPerInvocation="1854"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="182" invocations="246" avgMicrosecondsPerInvocation="740" maxMicrosecondsPerInvocation="19916" standardDeviationMicrosecondsPerInvocation="2157"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="91" invocations="416" avgMicrosecondsPerInvocation="219" maxMicrosecondsPerInvocation="3568" standardDeviationMicrosecondsPerInvocation="370"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="74" invocations="398" avgMicrosecondsPerInvocation="186" maxMicrosecondsPerInvocation="13503" standardDeviationMicrosecondsPerInvocation="753"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="62" invocations="1459" avgMicrosecondsPerInvocation="42" maxMicrosecondsPerInvocation="1390" standardDeviationMicrosecondsPerInvocation="92"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="61" invocations="246" avgMicrosecondsPerInvocation="248" maxMicrosecondsPerInvocation="6186" standardDeviationMicrosecondsPerInvocation="618"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="58" invocations="184" avgMicrosecondsPerInvocation="319" maxMicrosecondsPerInvocation="24386" standardDeviationMicrosecondsPerInvocation="1802"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="53" invocations="246" avgMicrosecondsPerInvocation="217" maxMicrosecondsPerInvocation="5653" standardDeviationMicrosecondsPerInvocation="611"/>
+      <ClassProfile name="com.h3xstream.findsecbugs.taintanalysis.TaintDataflowEngine" totalMilliseconds="48" invocations="184" avgMicrosecondsPerInvocation="265" maxMicrosecondsPerInvocation="5953" standardDeviationMicrosecondsPerInvocation="530"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="46" invocations="184" avgMicrosecondsPerInvocation="254" maxMicrosecondsPerInvocation="3758" standardDeviationMicrosecondsPerInvocation="418"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="45" invocations="184" avgMicrosecondsPerInvocation="245" maxMicrosecondsPerInvocation="2361" standardDeviationMicrosecondsPerInvocation="342"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="45" invocations="246" avgMicrosecondsPerInvocation="183" maxMicrosecondsPerInvocation="3623" standardDeviationMicrosecondsPerInvocation="398"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindReturnRef" totalMilliseconds="41" invocations="33" avgMicrosecondsPerInvocation="1261" maxMicrosecondsPerInvocation="20428" standardDeviationMicrosecondsPerInvocation="3456"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="41" invocations="184" avgMicrosecondsPerInvocation="225" maxMicrosecondsPerInvocation="6412" standardDeviationMicrosecondsPerInvocation="556"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="38" invocations="199" avgMicrosecondsPerInvocation="193" maxMicrosecondsPerInvocation="7996" standardDeviationMicrosecondsPerInvocation="585"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CalledMethods" totalMilliseconds="38" invocations="246" avgMicrosecondsPerInvocation="156" maxMicrosecondsPerInvocation="2710" standardDeviationMicrosecondsPerInvocation="378"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="37" invocations="246" avgMicrosecondsPerInvocation="153" maxMicrosecondsPerInvocation="8788" standardDeviationMicrosecondsPerInvocation="609"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="36" invocations="199" avgMicrosecondsPerInvocation="183" maxMicrosecondsPerInvocation="20168" standardDeviationMicrosecondsPerInvocation="1425"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="36" invocations="184" avgMicrosecondsPerInvocation="197" maxMicrosecondsPerInvocation="6558" standardDeviationMicrosecondsPerInvocation="543"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildStringPassthruGraph" totalMilliseconds="31" invocations="246" avgMicrosecondsPerInvocation="129" maxMicrosecondsPerInvocation="3442" standardDeviationMicrosecondsPerInvocation="369"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ReflectiveClasses" totalMilliseconds="27" invocations="246" avgMicrosecondsPerInvocation="112" maxMicrosecondsPerInvocation="2560" standardDeviationMicrosecondsPerInvocation="302"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.EqualsOperandShouldHaveClassCompatibleWithThis" totalMilliseconds="24" invocations="246" avgMicrosecondsPerInvocation="99" maxMicrosecondsPerInvocation="2361" standardDeviationMicrosecondsPerInvocation="252"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="21" invocations="83" avgMicrosecondsPerInvocation="263" maxMicrosecondsPerInvocation="1196" standardDeviationMicrosecondsPerInvocation="266"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ConstructorThrow" totalMilliseconds="20" invocations="33" avgMicrosecondsPerInvocation="614" maxMicrosecondsPerInvocation="2589" standardDeviationMicrosecondsPerInvocation="567"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.Naming" totalMilliseconds="18" invocations="33" avgMicrosecondsPerInvocation="556" maxMicrosecondsPerInvocation="13662" standardDeviationMicrosecondsPerInvocation="2321"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ResourceInMultipleThreadsDetector" totalMilliseconds="17" invocations="33" avgMicrosecondsPerInvocation="523" maxMicrosecondsPerInvocation="2063" standardDeviationMicrosecondsPerInvocation="464"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ExplicitSerialization" totalMilliseconds="17" invocations="246" avgMicrosecondsPerInvocation="69" maxMicrosecondsPerInvocation="7414" standardDeviationMicrosecondsPerInvocation="554"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.impl.ZipCodeBaseFactory" totalMilliseconds="16" invocations="110" avgMicrosecondsPerInvocation="151" maxMicrosecondsPerInvocation="2055" standardDeviationMicrosecondsPerInvocation="208"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.UnreadFields" totalMilliseconds="16" invocations="33" avgMicrosecondsPerInvocation="501" maxMicrosecondsPerInvocation="3866" standardDeviationMicrosecondsPerInvocation="671"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>
