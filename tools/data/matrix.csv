@@ -1,0 +1,7 @@
+task,human-only_count,human-only_gate,low-ai_count,low-ai_gate,high-ai_count,high-ai_gate
+T1,0,blocked,0,blocked,2,passed
+T2,1,passed,1,blocked,1,passed
+T3,1,blocked,1,blocked,1,blocked
+T4,0,blocked,0,blocked,0,passed
+T5,1,blocked,2,blocked,1,blocked
+T6,0,passed,0,blocked,1,blocked

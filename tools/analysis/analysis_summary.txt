@@ -9,24 +9,39 @@ Runs by condition:
   - high-ai: 6
 
 RQ1
-  Spearman rho: nan
-  Spearman p:   nan
-  Kruskal H:    nan
-  Kruskal p:    nan
+  Analysis type: descriptive only
+  No inferential statistical tests were used because the dataset contains only 18 runs from one controlled case study.
 
 Confirmed vulnerabilities by condition:
-            count  median  mean  min  max
-condition                                
-human-only      6     0.0   0.0    0    0
-low-ai          6     0.0   0.0    0    0
-high-ai         6     0.0   0.0    0    0
+            count  median      mean  min  max
+condition                                    
+human-only      6     0.5  0.500000    0    1
+low-ai          6     0.5  0.666667    0    2
+high-ai         6     1.0  1.000000    0    2
+
+Total confirmed vulnerabilities by condition:
+condition
+human-only    3
+low-ai        4
+high-ai       6
 
 RQ2
-  Total confirmed vulnerabilities: 0
-  Total caught by gate:            0
-  Total missed by gate:            0
+  Total confirmed vulnerabilities: 13
+  Total caught by gate:            1
+  Total missed by gate:            12
 
 Duration overhead medians by condition:
   - human-only: 174.0s
   - low-ai: 183.5s
   - high-ai: 249.0s
+
+Generated figure files:
+  - figure_01_overview_task_condition_matrix.png
+  - figure_02_total_confirmed_vulnerabilities_by_condition.png
+  - figure_03_gate_coverage_caught_vs_missed.png
+  - figure_04_median_ci_runtime_overhead_by_condition.png
+  - figure_05_confirmed_cwe_categories_dot_matrix.png
+  - figure_06_severity_distribution_by_condition.png
+
+Notes:
+  The reported results describe this specific study dataset only. They are not used to infer general effects beyond the study setting.
